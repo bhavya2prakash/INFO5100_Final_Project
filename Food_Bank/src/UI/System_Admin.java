@@ -48,7 +48,7 @@ public class System_Admin extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(158, 106, 54));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\utkar\\OneDrive\\Desktop\\Food_Bank_Images\\SYstem_Admin logo.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/System_Admin_logo.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("System Administrator");
@@ -134,7 +134,7 @@ public class System_Admin extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("  Supply Unit");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Supply_unit_logo (2).png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Images/Supply_unit_logo .png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
