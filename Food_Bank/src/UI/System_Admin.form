@@ -97,7 +97,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\utkar\OneDrive\Desktop\Food_Bank_Images\SYstem_Admin logo.png"/>
+                  <Image iconType="3" name="/UI/Images/System_Admin_logo.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -297,7 +297,7 @@
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/UI/Images/Supply_unit_logo (2).png"/>
+                  <Image iconType="3" name="/UI/Images/Supply_unit_logo .png"/>
                 </Property>
               </Properties>
               <Events>
