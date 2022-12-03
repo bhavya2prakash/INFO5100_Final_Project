@@ -5,6 +5,8 @@
 package Business;
 
 import Business.Network.Network;
+import Business.UserAccount.UserAccountDirectory;
+
 import java.util.ArrayList;
 
 /**
@@ -14,9 +16,11 @@ import java.util.ArrayList;
 public class EcoSystem {
      private ArrayList<Network> networkList;
      private static EcoSystem business;
+     private UserAccountDirectory userAccountList;
 
     public EcoSystem() {
        networkList = new ArrayList<>();
+       userAccountList= new UserAccountDirectory(); 
     }
     public static void setBusiness(EcoSystem business) {
         EcoSystem.business = business;
@@ -35,6 +39,15 @@ public class EcoSystem {
     public void setNetworkList(ArrayList<Network> networkList) {
         this.networkList = networkList;
     }
+
+    public UserAccountDirectory getUserAccountList() {
+        return userAccountList;
+    }
+
+    public void setUserAccountList(UserAccountDirectory userAccountList) {
+        this.userAccountList = userAccountList;
+    }
+    
     
       public Network addNetwork(){
         Network network=new Network();

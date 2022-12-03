@@ -4,6 +4,8 @@
  */
 package Business.Employee;
 
+import Business.Organization.Organization;
+
 /**
  *
  * @author BHAVYA PRAKASH
@@ -11,13 +13,30 @@ package Business.Employee;
 public class Employee {
     private String name;
     private int empId;
+    private Organization organization;
     private static int count = 1;
-
+    
     public Employee() {
         empId = count;
         count++;
     }
 
+    public int getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(int empId) {
+        this.empId = empId;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+    
     public int getempId() {
         return empId;
     }

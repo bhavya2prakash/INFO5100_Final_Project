@@ -12,6 +12,8 @@ import Business.Organization.OrganizationCatalogue;
  */
 public class Enterprise {
    private String name;
+    private int enterpriseId;
+    private static int count = 1;
    private EnterpriseType enterpriseType;
     private OrganizationCatalogue organizationList;
 
@@ -39,8 +41,10 @@ public class Enterprise {
 
     public Enterprise(String name, EnterpriseType enterpriseType) {
         this.name = name;
+        this.enterpriseId=count;
         this.enterpriseType = enterpriseType;
         this.organizationList = new OrganizationCatalogue();
+        count++;
     }
 
     public String getName() {
@@ -58,6 +62,23 @@ public class Enterprise {
     public void setEnterpriseType(EnterpriseType enterpriseType) {
         this.enterpriseType = enterpriseType;
     }
+
+    public int getEnterpriseId() {
+        return enterpriseId;
+    }
+
+    public void setEnterpriseId(int enterpriseId) {
+        this.enterpriseId = enterpriseId;
+    }
+
+    public OrganizationCatalogue getOrganizationList() {
+        return organizationList;
+    }
+
+    public void setOrganizationList(OrganizationCatalogue organizationList) {
+        this.organizationList = organizationList;
+    }
+    
    
     
 }

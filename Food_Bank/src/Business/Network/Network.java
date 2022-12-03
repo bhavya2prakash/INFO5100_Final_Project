@@ -10,12 +10,24 @@ import Business.Enterprise.EnterpriseCatalogue;
  *
  * @author BHAVYA PRAKASH
  */
-public class Network {
+public class Network  {
     private String name;
+    private int networkId;
+    private static int count = 101;
     private EnterpriseCatalogue enterpriseList;
 
     public Network() {
         this.enterpriseList = new EnterpriseCatalogue();
+        this.networkId=count;
+        count++;
+    }
+
+    public int getNetworkId() {
+        return networkId;
+    }
+
+    public void setNetworkId(int networkId) {
+        this.networkId = networkId;
     }
 
     public String getName() {
@@ -32,6 +44,10 @@ public class Network {
 
     public void setEnterpriseList(EnterpriseCatalogue enterpriseList) {
         this.enterpriseList = enterpriseList;
+    }
+    @Override
+    public String toString(){
+        return name;
     }
     
     

@@ -36,6 +36,14 @@ public class UserAccountDirectory {
         userAccountList.add(userAccount);
         return userAccount;
     }
+     public UserAccount createUserAccount(String username, String password, Role role){
+        UserAccount userAccount = new UserAccount();
+        userAccount.setUsername(username);
+        userAccount.setPassword(password);
+        userAccount.setRole(role);
+        userAccountList.add(userAccount);
+        return userAccount;
+    }
      public UserAccount createUserAccount(String username, String password, Beneficiary beneficiary, Role role){
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);

@@ -4,17 +4,28 @@
  */
 package UI.SystemAdmin;
 
+import Business.EcoSystem;
+import Business.Network.Network;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author indianrenters
  */
-public class SystemAdmin extends javax.swing.JPanel {
+public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     /**
      * Creates new form SystemAdmin
      */
-    public SystemAdmin() {
+    JPanel userProcessContainer;
+    EcoSystem system;
+    public SystemAdminWorkArea(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        populateTableNetwork();
+        populateComboNetwork();
     }
 
     /**
@@ -34,9 +45,10 @@ public class SystemAdmin extends javax.swing.JPanel {
         pnlProfile = new javax.swing.JPanel();
         pnlManageNetwork = new javax.swing.JPanel();
         tblManageNetwork = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        networkTable = new javax.swing.JTable();
         txtAddNetwork = new javax.swing.JTextField();
         lblAddNetwork = new javax.swing.JLabel();
+        btnAddNetwork = new javax.swing.JButton();
         pnlManageEnterprise = new javax.swing.JPanel();
         cmbNetwork = new javax.swing.JComboBox<>();
         lblSelectNetwork = new javax.swing.JLabel();
@@ -108,7 +120,7 @@ public class SystemAdmin extends javax.swing.JPanel {
 
         pnlManageNetwork.setBackground(new java.awt.Color(234, 253, 234));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        networkTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -127,7 +139,7 @@ public class SystemAdmin extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblManageNetwork.setViewportView(jTable1);
+        tblManageNetwork.setViewportView(networkTable);
 
         txtAddNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,20 +149,32 @@ public class SystemAdmin extends javax.swing.JPanel {
 
         lblAddNetwork.setText("Add Network Name");
 
+        btnAddNetwork.setText("Submit");
+        btnAddNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddNetworkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlManageNetworkLayout = new javax.swing.GroupLayout(pnlManageNetwork);
         pnlManageNetwork.setLayout(pnlManageNetworkLayout);
         pnlManageNetworkLayout.setHorizontalGroup(
             pnlManageNetworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlManageNetworkLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tblManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManageNetworkLayout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(lblAddNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(txtAddNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(252, 252, 252))
+                .addContainerGap(152, Short.MAX_VALUE)
+                .addGroup(pnlManageNetworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManageNetworkLayout.createSequentialGroup()
+                        .addComponent(tblManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(122, 122, 122))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManageNetworkLayout.createSequentialGroup()
+                        .addComponent(lblAddNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(txtAddNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(252, 252, 252))))
+            .addGroup(pnlManageNetworkLayout.createSequentialGroup()
+                .addGap(367, 367, 367)
+                .addComponent(btnAddNetwork)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlManageNetworkLayout.setVerticalGroup(
             pnlManageNetworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +185,9 @@ public class SystemAdmin extends javax.swing.JPanel {
                 .addGroup(pnlManageNetworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAddNetwork))
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addComponent(btnAddNetwork)
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         tabViewPanes.addTab("Manage Network", pnlManageNetwork);
@@ -320,21 +346,22 @@ public class SystemAdmin extends javax.swing.JPanel {
             pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
                 .addGroup(pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
-                            .addComponent(btnUpdateOrg)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnUpdateSubmit))
-                        .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
-                            .addGap(143, 143, 143)
-                            .addComponent(lblSelectNewtorkOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbSelectNetworkOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(49, 49, 49)
-                            .addComponent(lblSelectEnterpriseOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbSelectEnterpriseOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addGroup(pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
+                                .addComponent(btnUpdateOrg)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUpdateSubmit))
+                            .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
+                                .addComponent(lblSelectNewtorkOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbSelectNetworkOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(lblSelectEnterpriseOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbSelectEnterpriseOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addGroup(pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -434,10 +461,10 @@ public class SystemAdmin extends javax.swing.JPanel {
             .addGroup(pnlSystemAdminWALayout.createSequentialGroup()
                 .addGap(0, 18, Short.MAX_VALUE)
                 .addGroup(pnlSystemAdminWALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSystemAdminView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlSystemAdminWALayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(pnlSystemAdminWorkArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pnlSystemAdminWorkArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlSystemAdminView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
         pnlSystemAdminWALayout.setVerticalGroup(
@@ -447,7 +474,7 @@ public class SystemAdmin extends javax.swing.JPanel {
                 .addComponent(pnlSystemAdminView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(pnlSystemAdminWorkArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 667, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -463,7 +490,25 @@ public class SystemAdmin extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+     private void populateTableNetwork(){
+     DefaultTableModel model = (DefaultTableModel) networkTable.getModel();
+     model.setRowCount(0);
+      for(Network n :system.getNetworkList()){
+          Object [] row = new Object[2];
+             row[0] = n.getNetworkId();
+             row[1] = n;
+              model.addRow(row);
+              
+        }
+    }
+    private void populateComboNetwork(){
+    cmbNetwork.removeAllItems();
+    cmbNetwork.addItem("Select");
+    cmbNetwork.setSelectedItem("Select"); 
+       for(Network n :system.getNetworkList()){
+             cmbNetwork.addItem(n.getName());   
+         }
+    } 
     private void txtAddNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddNetworkActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddNetworkActionPerformed
@@ -484,10 +529,19 @@ public class SystemAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateOrgActionPerformed
 
+    private void btnAddNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNetworkActionPerformed
+        // TODO add your handling code here:
+        String networkName = txtAddNetwork.getText();
+        system.addNetwork().setName(networkName);
+        populateTableNetwork();
+        
+    }//GEN-LAST:event_btnAddNetworkActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ScrPaneManageEnterprise;
     private javax.swing.JScrollPane ScrPaneManageUsers;
+    private javax.swing.JButton btnAddNetwork;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdateOrg;
@@ -498,7 +552,6 @@ public class SystemAdmin extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbSelectEnterpriseOrg;
     private javax.swing.JComboBox<String> cmbSelectNetworkOrg;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAddNetwork;
     private javax.swing.JLabel lblEnterpriseName;
     private javax.swing.JLabel lblEnterpriseType;
@@ -508,6 +561,7 @@ public class SystemAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel lblSelectNetwork;
     private javax.swing.JLabel lblSelectNewtorkOrg;
     private javax.swing.JLabel lblSystemAdmin;
+    private javax.swing.JTable networkTable;
     private javax.swing.JPanel pnlManageEnterprise;
     private javax.swing.JPanel pnlManageNetwork;
     private javax.swing.JPanel pnlManageOrganisation;
