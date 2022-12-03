@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UI;
+package UI.Restaurant;
 
 /**
  *
- * @author utkar
+ * @author indianrenters
  */
-public class Transport_Service extends javax.swing.JPanel {
+public class Restaurant extends javax.swing.JPanel {
 
     /**
-     * Creates new form Transport_Service
+     * Creates new form Restaurant
      */
-    public Transport_Service() {
+    public Restaurant() {
         initComponents();
     }
 
@@ -30,11 +30,11 @@ public class Transport_Service extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 910, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 675, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
