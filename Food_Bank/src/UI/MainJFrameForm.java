@@ -1214,9 +1214,6 @@ public class MainJFrameForm extends javax.swing.JFrame {
     }//GEN-LAST:event_comboUserTypeActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-
-
-
                 txtName.setText("");
                 txtAge.setText("");
                 txtEmail.setText("");
