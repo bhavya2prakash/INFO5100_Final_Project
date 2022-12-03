@@ -4,6 +4,13 @@
  */
 package UI;
 
+import Business.ConfigureASystem;
+import Business.EcoSystem;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author indianrenters
@@ -13,8 +20,10 @@ public class MainJFrameForm extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrameForm
      */
+    EcoSystem system = ConfigureASystem.configure();
     public MainJFrameForm() {
         initComponents();
+        
     }
 
     /**
@@ -36,14 +45,14 @@ public class MainJFrameForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblPwd = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
+        userNametxtfield = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
-        txtPwd = new javax.swing.JPasswordField();
         comboUserType = new javax.swing.JComboBox<>();
         lblPwd1 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
         pnlCreateUser = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -140,7 +149,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(84, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(132, 132, 132))
         );
@@ -189,10 +198,10 @@ public class MainJFrameForm extends javax.swing.JFrame {
         lblUserName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblUserName.setText("User Name:");
 
-        txtUserName.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        txtUserName.addActionListener(new java.awt.event.ActionListener() {
+        userNametxtfield.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        userNametxtfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserNameActionPerformed(evt);
+                userNametxtfieldActionPerformed(evt);
             }
         });
 
@@ -203,8 +212,6 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 btnRegisterActionPerformed(evt);
             }
         });
-
-        txtPwd.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
 
         comboUserType.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         comboUserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Person", "Doctor", "Community", "System", "Hospital" }));
@@ -226,6 +233,12 @@ public class MainJFrameForm extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Want to Contribute More? Add your organisation today");
+
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -249,9 +262,9 @@ public class MainJFrameForm extends javax.swing.JFrame {
                                 .addComponent(lblPwd1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(201, 201, 201)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(txtPwd)
-                            .addComponent(comboUserType, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(userNametxtfield, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(comboUserType, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordField)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,16 +291,16 @@ public class MainJFrameForm extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(lblPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(txtPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23)
+                        .addComponent(userNametxtfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
                 .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRegister)
                 .addGap(68, 68, 68)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
@@ -615,7 +628,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                                 .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                                 .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(comboboxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -961,7 +974,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
             .addGroup(jPanel40Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, 909, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel40Layout.setVerticalGroup(
             jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1187,9 +1200,9 @@ public class MainJFrameForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
+    private void userNametxtfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNametxtfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserNameActionPerformed
+    }//GEN-LAST:event_userNametxtfieldActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
@@ -1280,7 +1293,26 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-      
+        String userName = userNametxtfield.getText();
+        
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        
+
+        
+        UserAccount userAccount = system.getUserAccountList().authenticateUser(userName, password);
+        
+        if (userAccount == null) {
+            JOptionPane.showMessageDialog(null, "Invalid credentials");
+             System.out.print(userName+password);
+            return;
+        } else {
+             jPanel1.removeAll();
+                jPanel1.add(userAccount.getRole().createWorkArea(jPanel1,userAccount,system));
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCreateAccount1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccount1ActionPerformed
@@ -1322,6 +1354,10 @@ public class MainJFrameForm extends javax.swing.JFrame {
     private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtName2ActionPerformed
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1432,6 +1468,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblUserName1;
     private javax.swing.JLabel lblUserName2;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JPanel pnlAddOrganisation;
     private javax.swing.JPanel pnlCreateUser;
     private javax.swing.JPanel pnlLogin;
@@ -1445,13 +1482,12 @@ public class MainJFrameForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtName1;
     private javax.swing.JTextField txtName2;
-    private javax.swing.JPasswordField txtPwd;
-    private javax.swing.JTextField txtUserName;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtUsername1;
     private javax.swing.JPasswordField txtcreatepwd;
     private javax.swing.JPasswordField txtcreatepwd1;
     private javax.swing.JTextField txthouse;
     private javax.swing.JTextField txthouse1;
+    private javax.swing.JTextField userNametxtfield;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,7 @@
  */
 package Business.Employee;
 
+import Business.Organization.Organization;
 import java.util.ArrayList;
 
 /**
@@ -21,9 +22,10 @@ public class EmployeeDirectory {
         return employeeList;
     }
     
-    public Employee addEmployee(String name){
+    public Employee addEmployee(String name,Organization organization){
         Employee employee = new Employee();
         employee.setName(name);
+        employee.setOrganization(organization);
         employeeList.add(employee);
         return employee;
     }

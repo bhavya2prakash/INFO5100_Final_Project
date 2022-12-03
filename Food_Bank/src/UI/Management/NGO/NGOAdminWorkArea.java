@@ -4,8 +4,6 @@
  */
 package UI.Management.NGO;
 
-import UI.NGO.*;
-
 /**
  *
  * @author indianrenters
