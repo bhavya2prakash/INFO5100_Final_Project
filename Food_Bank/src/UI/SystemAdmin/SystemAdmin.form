@@ -37,11 +37,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="pnlSystemAdminView" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                           <Component id="pnlSystemAdminWorkArea" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="pnlSystemAdminView" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
               </Group>
@@ -54,7 +54,7 @@
                   <Component id="pnlSystemAdminView" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Component id="pnlSystemAdminWorkArea" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="667" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
