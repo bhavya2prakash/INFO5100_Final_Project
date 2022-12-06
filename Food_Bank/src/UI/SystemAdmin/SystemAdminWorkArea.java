@@ -18,14 +18,14 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form SystemAdmin
      */
-    JPanel userProcessContainer;
-    EcoSystem system;
-    public SystemAdminWorkArea(JPanel userProcessContainer, EcoSystem system) {
+   // JPanel userProcessContainer;
+    //EcoSystem system;
+    public SystemAdminWorkArea() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.system = system;
-        populateTableNetwork();
-        populateComboNetwork();
+//        this.userProcessContainer = userProcessContainer;
+//        this.system = system;
+//        populateTableNetwork();
+//        populateComboNetwork();
     }
 
     /**
@@ -490,25 +490,25 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-     private void populateTableNetwork(){
-     DefaultTableModel model = (DefaultTableModel) networkTable.getModel();
-     model.setRowCount(0);
-      for(Network n :system.getNetworkList()){
-          Object [] row = new Object[2];
-             row[0] = n.getNetworkId();
-             row[1] = n;
-              model.addRow(row);
-              
-        }
-    }
-    private void populateComboNetwork(){
-    cmbNetwork.removeAllItems();
-    cmbNetwork.addItem("Select");
-    cmbNetwork.setSelectedItem("Select"); 
-       for(Network n :system.getNetworkList()){
-             cmbNetwork.addItem(n.getName());   
-         }
-    } 
+//     private void populateTableNetwork(){
+//     DefaultTableModel model = (DefaultTableModel) networkTable.getModel();
+//     model.setRowCount(0);
+//      for(Network n :system.getNetworkList()){
+//          Object [] row = new Object[2];
+//             row[0] = n.getNetworkId();
+//             row[1] = n;
+//              model.addRow(row);
+//              
+//        }
+//    }
+//    private void populateComboNetwork(){
+//    cmbNetwork.removeAllItems();
+//    cmbNetwork.addItem("Select");
+//    cmbNetwork.setSelectedItem("Select"); 
+//       for(Network n :system.getNetworkList()){
+//             cmbNetwork.addItem(n.getName());   
+//         }
+  //  } 
     private void txtAddNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddNetworkActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddNetworkActionPerformed
@@ -531,10 +531,10 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
     private void btnAddNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNetworkActionPerformed
         // TODO add your handling code here:
-        String networkName = txtAddNetwork.getText();
-        system.addNetwork().setName(networkName);
-        populateTableNetwork();
-        
+//        String networkName = txtAddNetwork.getText();
+//        system.addNetwork().setName(networkName);
+//        populateTableNetwork();
+//        
     }//GEN-LAST:event_btnAddNetworkActionPerformed
 
 

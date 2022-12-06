@@ -213,10 +213,10 @@
                                           <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="userNametxtfield" alignment="0" pref="220" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="userNametxtfield" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                                       <Component id="comboUserType" alignment="0" min="-2" pref="0" max="-2" attributes="0"/>
-                                      <Component id="passwordField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtPassword" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -254,8 +254,8 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="userNametxtfield" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="passwordField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -364,9 +364,9 @@
                     <Property name="text" type="java.lang.String" value="Want to Contribute More? Add your organisation today"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="passwordField">
+                <Component class="javax.swing.JPasswordField" name="txtPassword">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPasswordActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
