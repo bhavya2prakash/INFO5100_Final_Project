@@ -43,6 +43,8 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         pnlSystemAdminWorkArea = new javax.swing.JPanel();
         tabViewPanes = new javax.swing.JTabbedPane();
         pnlProfile = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pnlManageNetwork = new javax.swing.JPanel();
         tblManageNetwork = new javax.swing.JScrollPane();
         networkTable = new javax.swing.JTable();
@@ -105,15 +107,34 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
 
         pnlProfile.setBackground(new java.awt.Color(255, 255, 204));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout pnlProfileLayout = new javax.swing.GroupLayout(pnlProfile);
         pnlProfile.setLayout(pnlProfileLayout);
         pnlProfileLayout.setHorizontalGroup(
             pnlProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 879, Short.MAX_VALUE)
+            .addGroup(pnlProfileLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(360, Short.MAX_VALUE))
         );
         pnlProfileLayout.setVerticalGroup(
             pnlProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
+            .addGroup(pnlProfileLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         tabViewPanes.addTab("View Stats", pnlProfile);
@@ -551,7 +572,9 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbOrgansiationType;
     private javax.swing.JComboBox<String> cmbSelectEnterpriseOrg;
     private javax.swing.JComboBox<String> cmbSelectNetworkOrg;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAddNetwork;
     private javax.swing.JLabel lblEnterpriseName;
     private javax.swing.JLabel lblEnterpriseType;
