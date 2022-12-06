@@ -60,7 +60,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
         lblPwd1 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         pnlCreateUser = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -242,9 +242,9 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
         jLabel3.setText("Want to Contribute More? Add your organisation today");
 
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
 
@@ -269,10 +269,10 @@ public class MainJFrameForm extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(lblPwd1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(201, 201, 201)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userNametxtfield, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userNametxtfield, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboUserType, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordField)))
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,8 +300,8 @@ public class MainJFrameForm extends javax.swing.JFrame {
                         .addComponent(lblPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(userNametxtfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24)
                 .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1298,108 +1298,39 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-       /* String userName = userNametxtfield.getText();
-        
-        char[] passwordCharArray = passwordField.getPassword();
-        String password = String.valueOf(passwordCharArray);
-        
-
-        
-        UserAccount userAccount = system.getUserAccountList().authenticateUser(userName, password);
-        
-        if (userAccount == null) {
-            JOptionPane.showMessageDialog(null, "Invalid credentials");
-             System.out.print(userName+password);
-            return;
-        } else {
-             jPanel1.removeAll();
-                jPanel1.add(userAccount.getRole().createWorkArea(jPanel1,userAccount,system));
-                jPanel1.repaint();
-                jPanel1.revalidate(); 
-               
-        }*/
+       String userName = userNametxtfield.getText();
+       char[] passwordCharArray = txtPassword.getPassword();
+       String password = String.valueOf(passwordCharArray);
+       String user_role;
        
          try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String query = "select * from user_login where username = ? and password = ? and usertype = ?";
-            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/AED_Assignment?useSSL=false","root","Sundaram@123");
-            statement = con.prepareStatement(query);
-            statement.setString(1, userNametxtfield.getText());
-            statement.setString(2, passwordField.getText());
-            //statement.setString(3, String.valueOf(comboUserType.getSelectedItem()));
-            result = statement.executeQuery();
-
-          /* if (result.next()){
-                JOptionPane.showMessageDialog(this, "You have logged in as " +result.getString("usertype"));
-                if(comboUserType.getSelectedIndex()==0){
-                PatientDetail patientportal = new PatientDetail();
-                this.setVisible(false);
-                patientportal.show();
-                }
-
-                else if(comboUserType.getSelectedIndex()==1){
-                DoctorRegistrar doctorportal = new DoctorRegistrar();
-                this.setVisible(false);
-                doctorportal.show();
-                }
-
-                else if(comboUserType.getSelectedIndex()==2){
-                HospitalRegistrar hospitalportal = new HospitalRegistrar();
-                this.setVisible(false);
-                hospitalportal.show();
-                }
-
-                 else if(comboUserType.getSelectedIndex()==3){
-                CommunityRegistrar communityportal = new CommunityRegistrar();
-                this.setVisible(false);
-                communityportal.show();
-                }
-
-                 else if(comboUserType.getSelectedIndex()==4){
-                SystemRegistrar systemportal = new SystemRegistrar();
-                this.setVisible(false);
-                systemportal.show();
-                }
-
-            } */
-
-            //String Username = txtUserName.getText();
-            //String Password = txtPwd.getText();
-            //String UserType =
-
-
-            //Statement statement;
-
-
-
-
-
-
-            /*ResultSet result = statement.executeQuery(query);
-
-            if (result.next()){
-                //String check = result.getString("patient");
-                PatientDetail patientportal = new PatientDetail();
-                this.setVisible(false);
-                patientportal.show();
-
+            
+            Class.forName("com.mysql.cj.jdbc.Driver"); 
+            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/aed_final_project","root", "Sundaram@123" ); 
+            PreparedStatement stmt=con.prepareStatement("select * from user_login where userName='"+userName+"'and password='"+password+"'"); 
+            ResultSet rs=stmt.executeQuery();
+            
+            if (rs.next()) {
+               user_role= rs.getString("user_role"); 
+               
+               if (user_role.equals("SysAdmin"))
+               {
+               JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+               UI.SystemAdmin.SystemAdminWorkArea s = new UI.SystemAdmin.SystemAdminWorkArea();
+                jPanel1.removeAll();
+                jPanel1.add(s); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else
+               {
+        
+               JOptionPane.showMessageDialog(this, "User Role not defined. Please contact System Admin.");
+               } 
+            
             }
-            /*DoctorRegistrar doctorportal = new DoctorRegistrar();
-            this.setVisible(false);
-            doctorportal.show();
-
-            }
-
-            else if (result.toString()== "patient"){
-            PatientDetail patientportal = new PatientDetail();
-            this.setVisible(false);
-            patientportal.show();
-            }
-
-           */
-
-
-        }
+         }
         catch (Exception e){
 
         }
@@ -1447,9 +1378,9 @@ public class MainJFrameForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtName2ActionPerformed
 
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1560,7 +1491,6 @@ public class MainJFrameForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblUserName1;
     private javax.swing.JLabel lblUserName2;
-    private javax.swing.JPasswordField passwordField;
     private javax.swing.JPanel pnlAddOrganisation;
     private javax.swing.JPanel pnlCreateUser;
     private javax.swing.JPanel pnlLogin;
@@ -1574,6 +1504,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtName1;
     private javax.swing.JTextField txtName2;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtUsername1;
     private javax.swing.JPasswordField txtcreatepwd;
