@@ -15,6 +15,8 @@ import javax.swing.JPanel;
  * @author BHAVYA PRAKASH
  */
 public abstract class Role {
+
+    
     
     public enum RoleType{
         SystemAdmin("System Admin"),
@@ -43,10 +45,8 @@ public abstract class Role {
             return value;
         }
     }
-        public abstract JPanel createWorkArea(JPanel userProcessContainer, 
-            UserAccount account, 
-            Organization organization, 
-            Enterprise enterprise, 
+       public abstract JPanel createWorkArea(JPanel userProcessContainer, 
+            UserAccount account,
             EcoSystem business);
 
     @Override
