@@ -1291,9 +1291,9 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        UI.SystemAdmin.SystemAdmin v = new UI.SystemAdmin.SystemAdmin();
+        //UI.SystemAdmin.SystemAdmin v = new UI.SystemAdmin.SystemAdmin();
                 MainJPanel.removeAll();
-                MainJPanel.add(v); 
+                //MainJPanel.add(v); 
                 MainJPanel.repaint();
                 MainJPanel.revalidate();
                 
