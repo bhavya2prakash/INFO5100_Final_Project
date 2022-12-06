@@ -9,6 +9,10 @@ import Business.EcoSystem;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,9 +25,13 @@ public class MainJFrameForm extends javax.swing.JFrame {
      * Creates new form MainJFrameForm
      */
     EcoSystem system = ConfigureASystem.configure();
+    Connection con =null;
+    PreparedStatement statement = null;
+    ResultSet result = null;
     public MainJFrameForm() {
         initComponents();
         
+       
     }
 
     /**
@@ -1290,7 +1298,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String userName = userNametxtfield.getText();
+       /* String userName = userNametxtfield.getText();
         
         char[] passwordCharArray = passwordField.getPassword();
         String password = String.valueOf(passwordCharArray);
@@ -1309,7 +1317,94 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 jPanel1.repaint();
                 jPanel1.revalidate(); 
                
+        }*/
+       
+         try{
+            Class.forName("com.mysql.jdbc.Driver");
+            String query = "select * from user_login where username = ? and password = ? and usertype = ?";
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/AED_Assignment?useSSL=false","root","Sundaram@123");
+            statement = con.prepareStatement(query);
+            statement.setString(1, userNametxtfield.getText());
+            statement.setString(2, passwordField.getText());
+            //statement.setString(3, String.valueOf(comboUserType.getSelectedItem()));
+            result = statement.executeQuery();
+
+           /* if (result.next()){
+                JOptionPane.showMessageDialog(this, "You have logged in as " +result.getString("usertype"));
+                if(comboUserType.getSelectedIndex()==0){
+                PatientDetail patientportal = new PatientDetail();
+                this.setVisible(false);
+                patientportal.show();
+                }
+
+                else if(comboUserType.getSelectedIndex()==1){
+                DoctorRegistrar doctorportal = new DoctorRegistrar();
+                this.setVisible(false);
+                doctorportal.show();
+                }
+
+                else if(comboUserType.getSelectedIndex()==2){
+                HospitalRegistrar hospitalportal = new HospitalRegistrar();
+                this.setVisible(false);
+                hospitalportal.show();
+                }
+
+                 else if(comboUserType.getSelectedIndex()==3){
+                CommunityRegistrar communityportal = new CommunityRegistrar();
+                this.setVisible(false);
+                communityportal.show();
+                }
+
+                 else if(comboUserType.getSelectedIndex()==4){
+                SystemRegistrar systemportal = new SystemRegistrar();
+                this.setVisible(false);
+                systemportal.show();
+                }
+
+            }
+*/
+            //String Username = txtUserName.getText();
+            //String Password = txtPwd.getText();
+            //String UserType =
+
+
+            //Statement statement;
+
+
+
+
+
+
+            /*ResultSet result = statement.executeQuery(query);
+
+            if (result.next()){
+                //String check = result.getString("patient");
+                PatientDetail patientportal = new PatientDetail();
+                this.setVisible(false);
+                patientportal.show();
+
+            }
+            /*DoctorRegistrar doctorportal = new DoctorRegistrar();
+            this.setVisible(false);
+            doctorportal.show();
+
+            }
+
+            else if (result.toString()== "patient"){
+            PatientDetail patientportal = new PatientDetail();
+            this.setVisible(false);
+            patientportal.show();
+            }
+
+           */
+
+
         }
+        catch (Exception e){
+
+        }
+
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCreateAccount1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccount1ActionPerformed
