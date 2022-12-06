@@ -1329,7 +1329,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
             //statement.setString(3, String.valueOf(comboUserType.getSelectedItem()));
             result = statement.executeQuery();
 
-           if (result.next()){
+          /* if (result.next()){
                 JOptionPane.showMessageDialog(this, "You have logged in as " +result.getString("usertype"));
                 if(comboUserType.getSelectedIndex()==0){
                 PatientDetail patientportal = new PatientDetail();
@@ -1361,7 +1361,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 systemportal.show();
                 }
 
-            }
+            } */
 
             //String Username = txtUserName.getText();
             //String Password = txtPwd.getText();
