@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package UI.SystemAdmin;
+import javax.swing.JPanel;
 
 /**
  *
@@ -65,6 +66,8 @@ public class SystemAdmin extends javax.swing.JPanel {
         ScrPaneManageUsers = new javax.swing.JScrollPane();
         tblManageUsers = new javax.swing.JTable();
 
+        pnlSystemAdminWA.setLayout(new java.awt.CardLayout());
+
         pnlSystemAdminView.setBackground(new java.awt.Color(0, 204, 204));
 
         lblSystemAdmin.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -78,16 +81,18 @@ public class SystemAdmin extends javax.swing.JPanel {
             pnlSystemAdminViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSystemAdminViewLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 958, Short.MAX_VALUE)
+                .addComponent(lblSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlSystemAdminViewLayout.setVerticalGroup(
             pnlSystemAdminViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSystemAdminViewLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(lblSystemAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        pnlSystemAdminWA.add(pnlSystemAdminView, "card2");
 
         tabViewPanes.setBackground(java.awt.Color.lightGray);
 
@@ -320,21 +325,22 @@ public class SystemAdmin extends javax.swing.JPanel {
             pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
                 .addGroup(pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
-                            .addComponent(btnUpdateOrg)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnUpdateSubmit))
-                        .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
-                            .addGap(143, 143, 143)
-                            .addComponent(lblSelectNewtorkOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbSelectNetworkOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(49, 49, 49)
-                            .addComponent(lblSelectEnterpriseOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbSelectEnterpriseOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addGroup(pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
+                                .addComponent(btnUpdateOrg)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUpdateSubmit))
+                            .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
+                                .addComponent(lblSelectNewtorkOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbSelectNetworkOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(lblSelectEnterpriseOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbSelectEnterpriseOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pnlManageOrganisationLayout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addGroup(pnlManageOrganisationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -417,7 +423,7 @@ public class SystemAdmin extends javax.swing.JPanel {
             .addGroup(pnlSystemAdminWorkAreaLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(tabViewPanes, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         pnlSystemAdminWorkAreaLayout.setVerticalGroup(
             pnlSystemAdminWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,28 +433,7 @@ public class SystemAdmin extends javax.swing.JPanel {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout pnlSystemAdminWALayout = new javax.swing.GroupLayout(pnlSystemAdminWA);
-        pnlSystemAdminWA.setLayout(pnlSystemAdminWALayout);
-        pnlSystemAdminWALayout.setHorizontalGroup(
-            pnlSystemAdminWALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSystemAdminWALayout.createSequentialGroup()
-                .addGap(0, 18, Short.MAX_VALUE)
-                .addGroup(pnlSystemAdminWALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSystemAdminView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlSystemAdminWALayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(pnlSystemAdminWorkArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 18, Short.MAX_VALUE))
-        );
-        pnlSystemAdminWALayout.setVerticalGroup(
-            pnlSystemAdminWALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSystemAdminWALayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnlSystemAdminView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(pnlSystemAdminWorkArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 667, Short.MAX_VALUE))
-        );
+        pnlSystemAdminWA.add(pnlSystemAdminWorkArea, "card3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -513,7 +498,7 @@ public class SystemAdmin extends javax.swing.JPanel {
     private javax.swing.JPanel pnlManageOrganisation;
     private javax.swing.JPanel pnlProfile;
     private javax.swing.JPanel pnlSystemAdminView;
-    private javax.swing.JPanel pnlSystemAdminWA;
+    public static javax.swing.JPanel pnlSystemAdminWA;
     private javax.swing.JPanel pnlSystemAdminWorkArea;
     private javax.swing.JPanel pnlUser;
     private javax.swing.JTabbedPane tabViewPanes;

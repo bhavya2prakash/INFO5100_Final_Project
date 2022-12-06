@@ -4,6 +4,16 @@
  */
 package UI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import UI.SystemAdmin.SystemAdmin; 
+
 /**
  *
  * @author indianrenters
@@ -13,6 +23,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrameForm
      */
+    
     public MainJFrameForm() {
         initComponents();
     }
@@ -26,7 +37,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        MainJPanel = new javax.swing.JPanel();
         pnlLogin = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -39,7 +50,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
         txtUserName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
-        txtPwd = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         comboUserType = new javax.swing.JComboBox<>();
         lblPwd1 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
@@ -123,7 +134,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new java.awt.CardLayout());
+        MainJPanel.setLayout(new java.awt.CardLayout());
 
         pnlLogin.setMaximumSize(new java.awt.Dimension(1002, 875));
 
@@ -204,7 +215,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
             }
         });
 
-        txtPwd.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
 
         comboUserType.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         comboUserType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Person", "Doctor", "Community", "System", "Hospital" }));
@@ -250,7 +261,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                                 .addGap(201, 201, 201)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(txtPwd)
+                            .addComponent(txtPassword)
                             .addComponent(comboUserType, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(148, 148, 148)
@@ -280,7 +291,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
-                        .addComponent(txtPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23)
                 .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -316,7 +327,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(pnlLogin, "card2");
+        MainJPanel.add(pnlLogin, "card2");
 
         jPanel6.setBackground(new java.awt.Color(0, 102, 153));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 102), 3, true));
@@ -752,7 +763,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(pnlCreateUser, "card3");
+        MainJPanel.add(pnlCreateUser, "card3");
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 153));
         jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 102), 3, true));
@@ -961,7 +972,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
             .addGroup(jPanel40Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, 909, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel40Layout.setVerticalGroup(
             jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1180,9 +1191,9 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(pnlAddOrganisation, "card4");
+        MainJPanel.add(pnlAddOrganisation, "card4");
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(MainJPanel, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1280,6 +1291,93 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        UI.SystemAdmin.SystemAdmin v = new UI.SystemAdmin.SystemAdmin();
+                MainJPanel.removeAll();
+                MainJPanel.add(v); 
+                MainJPanel.repaint();
+                MainJPanel.revalidate();
+                
+                
+        //String userName=txtUsername.getText(); 
+        //String password=txtPassword.getText(); 
+        //String userRole=null; 
+        
+      
+        
+        /*try{
+            Class.forName("com.mysql.cj.jdbc.Driver"); 
+            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/swing_demo","root", "password" ); 
+            PreparedStatement stmt=con.prepareStatement("select * from user_database where userName='"+userName+"'and password='"+password+"' or userRole='"+userRole+"'"); 
+            ResultSet rs=stmt.executeQuery();
+            
+            if (rs.next()) {
+               userRole= rs.getString("userRole"); 
+               
+               if (userRole.equals("system admin"))
+               {
+               JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ userRole);
+               
+                MainJPanel.removeAll();
+                MainJPanel.add(UI.SystemAdmin.SystemAdmin.pnlSystemAdminWA); 
+                MainJPanel.repaint();
+                MainJPanel.revalidate();
+                
+               System_Admin user = new System_Admin();
+               this.setVisible(false);
+               user.show(); //shows system jframe to user. 
+               }
+               
+              /* else if (userRole.equals("community admin"))
+               {
+               JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ userRole); 
+               CommunityJFrame user = new CommunityJFrame();
+               this.setVisible(false);
+               user.show(); //shows community jframe to user. 
+               }
+               
+               else if (userRole.equals("patient"))
+               {
+               JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ userRole); 
+               PatientJFrame user = new PatientJFrame();
+               this.setVisible(false);
+               user.show(); //shows second jframe to user.
+               }
+               
+               else if (userRole.equals("doctor"))
+               {
+               JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ userRole);
+               DoctorJFrame user = new DoctorJFrame();
+            this.setVisible(false);
+            user.show(); //shows doctor jframe to user.
+               }
+               
+               
+               else if (userRole.equals("hospital admin"))
+               {
+               JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ userRole);
+               HospitalJFrame user = new HospitalJFrame();
+               this.setVisible(false);
+               user.show(); //shows community jframe to user. 
+               }
+               */
+               
+        /*else
+               {
+        
+               JOptionPane.showMessageDialog(this, "User Role not defined. Please contact System Admin.");
+               } 
+            //JOptionPane.showMessageDialog(null, "You have successfully logged in");
+            
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Username & Password");
+            }  
+            
+        }
+        catch(Exception e){
+            System.out.println(e);
+        
+        }
+*/
       
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -1359,6 +1457,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JPanel MainJPanel;
     private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnCreateAccount1;
     private javax.swing.JButton btnLogin;
@@ -1390,7 +1489,6 @@ public class MainJFrameForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel80;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel33;
@@ -1434,7 +1532,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblUserName2;
     private javax.swing.JPanel pnlAddOrganisation;
     private javax.swing.JPanel pnlCreateUser;
-    private javax.swing.JPanel pnlLogin;
+    javax.swing.JPanel pnlLogin;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAddress1;
     private javax.swing.JTextField txtAge;
@@ -1445,7 +1543,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtName1;
     private javax.swing.JTextField txtName2;
-    private javax.swing.JPasswordField txtPwd;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtUsername1;
