@@ -759,8 +759,8 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
           
         });
        
-       txtNetworkID.setText("");
-       txtNetworkName.setText("");
+        txtNetworkID.setText("");
+        txtNetworkName.setText("");
         
             
         String NetworkId = txtNetworkID.getText();
@@ -776,9 +776,6 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
         statement.setString(1, NetworkId);
         statement.setString(2, NetworkName);
         
-        
-        
-        
         if (statement.executeUpdate() > 0 ){
             
             JOptionPane.showMessageDialog(this, "New Network Added");
@@ -793,9 +790,9 @@ public class SystemAdminWorkArea extends javax.swing.JPanel {
                 
                 
                 String tblUser1[] =  {username,pwd};
-               DefaultTableModel model1 =  (DefaultTableModel) tblUser.getModel();
+                DefaultTableModel model1 =  (DefaultTableModel) tblUser.getModel();
                
-               model1.addRow(tblUser1);
+                model1.addRow(tblUser1);
             }
         }
         catch (Exception e){
