@@ -374,7 +374,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
         btnCreateAccount.setBackground(new java.awt.Color(0, 102, 153));
         btnCreateAccount.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        btnCreateAccount.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateAccount.setForeground(new java.awt.Color(51, 51, 51));
         btnCreateAccount.setText("Create Account");
         btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -490,7 +490,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
         btnbcklogin.setBackground(new java.awt.Color(0, 102, 153));
         btnbcklogin.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        btnbcklogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnbcklogin.setForeground(new java.awt.Color(51, 51, 51));
         btnbcklogin.setText("Back to Login");
         btnbcklogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -594,7 +594,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
         jButton13.setBackground(new java.awt.Color(0, 102, 153));
         jButton13.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        jButton13.setForeground(new java.awt.Color(255, 255, 255));
+        jButton13.setForeground(new java.awt.Color(51, 51, 51));
         jButton13.setText("Clear");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -672,15 +672,15 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jButton13)
                         .addGap(60, 60, 60)
                         .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(75, 75, 75)
                         .addComponent(btnbcklogin)
-                        .addGap(144, 144, 144))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(242, 242, 242))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,7 +725,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                         .addComponent(txthouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37)
                 .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -733,17 +733,17 @@ public class MainJFrameForm extends javax.swing.JFrame {
                             .addComponent(txtcreatepwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUserName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(94, 94, 94)))
+                        .addGap(93, 93, 93)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateAccount)
                     .addComponent(btnbcklogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13))
-                .addGap(101, 101, 101))
+                .addGap(102, 102, 102))
         );
 
         javax.swing.GroupLayout pnlCreateUserLayout = new javax.swing.GroupLayout(pnlCreateUser);
@@ -1310,7 +1310,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
          try{
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/aed_final_project", "root", "Sundaram@123"); 
+            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/aed_final_project", "root", "password"); 
             PreparedStatement stmt=con.prepareStatement("select * from user_login where userName='"+userName+"'and password='"+password+"' or user_role='"+user_role+"'"); 
             //PreparedStatement statement=con.prepareStatement("select * from user_login");
             ResultSet rs=stmt.executeQuery();
