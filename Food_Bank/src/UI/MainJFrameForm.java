@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -293,7 +294,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblPwd1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboUserType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,7 +310,7 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 .addComponent(btnRegister)
                 .addGap(68, 68, 68)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
@@ -1308,17 +1309,20 @@ public class MainJFrameForm extends javax.swing.JFrame {
        String userName = userNametxtfield.getText();
        char[] passwordCharArray = txtPassword.getPassword();
        String password = String.valueOf(passwordCharArray);
-       String user_role;
+       String user_role=null;
+
        
          try{
             
-            Class.forName("com.mysql.cj.jdbc.Driver"); 
-            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/aed_final_project","root", "Sundaram@123" ); 
-            PreparedStatement stmt=con.prepareStatement("select * from user_login where userName='"+userName+"'and password='"+password+"'"); 
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/aed_final_project", "root", "Sundaram@123"); 
+            PreparedStatement stmt=con.prepareStatement("select * from user_login where userName='"+userName+"'and password='"+password+"' or user_role='"+user_role+"'"); 
             ResultSet rs=stmt.executeQuery();
             
             if (rs.next()) {
                user_role= rs.getString("user_role"); 
+               
+               System.out.println(user_role);
                
                if (user_role.equals("SysAdmin"))
                {
@@ -1330,6 +1334,96 @@ public class MainJFrameForm extends javax.swing.JFrame {
                 jPanel1.revalidate(); 
                }
                
+               else if(user_role.equals("RestaurantAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.FoodSupply.RestaurantManagerWorkAreaa r = new UI.FoodSupply.RestaurantManagerWorkAreaa();
+                jPanel1.removeAll();
+                jPanel1.add(r); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else if(user_role.equals("GroceryAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.FoodSupply.GroceryManagerWorkAreaa g = new UI.FoodSupply.GroceryManagerWorkAreaa();
+                jPanel1.removeAll();
+                jPanel1.add(g); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else if(user_role.equals("TransportAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.DistributionUnit.TransportationWorkArea t = new UI.DistributionUnit.TransportationWorkArea();
+                jPanel1.removeAll();
+                jPanel1.add(t); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else if(user_role.equals("TransportAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.DistributionUnit.TransportationWorkArea t = new UI.DistributionUnit.TransportationWorkArea();
+                jPanel1.removeAll();
+                jPanel1.add(t); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else if(user_role.equals("WarehouseAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.DistributionUnit.WarehouseWorkArea w = new UI.DistributionUnit.WarehouseWorkArea();
+                jPanel1.removeAll();
+                jPanel1.add(w); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else if(user_role.equals("FundAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.FinancingUnit.FundingOrganisationWorkArea f = new UI.FinancingUnit.FundingOrganisationWorkArea();
+                jPanel1.removeAll();
+                jPanel1.add(f); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else if(user_role.equals("InspectionAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.Management.FoodInspectionWorkArea i = new UI.Management.FoodInspectionWorkArea();
+                jPanel1.removeAll();
+                jPanel1.add(i); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else if(user_role.equals("NGOAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.Management.NGO.NGOAdminWorkArea n = new UI.Management.NGO.NGOAdminWorkArea();
+                jPanel1.removeAll();
+                jPanel1.add(n); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+               
+               else if(user_role.equals("WebsiteAdmin")) 
+               {
+                JOptionPane.showMessageDialog(null, "You have logged in successfully as a "+ user_role);    
+                UI.Management.NGO.Website.Website web = new UI.Management.NGO.Website.Website();
+                jPanel1.removeAll();
+                jPanel1.add(web); 
+                jPanel1.repaint();
+                jPanel1.revalidate(); 
+               }
+                       
                else
                {
         
