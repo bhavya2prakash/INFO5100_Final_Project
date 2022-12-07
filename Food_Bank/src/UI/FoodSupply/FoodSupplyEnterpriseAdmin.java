@@ -283,7 +283,7 @@ public class FoodSupplyEnterpriseAdmin extends javax.swing.JPanel {
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addJButton)
+                            .addComponent(addJButton, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPasswordField1))))
                 .addGap(293, 293, 293))
         );
@@ -304,9 +304,9 @@ public class FoodSupplyEnterpriseAdmin extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addComponent(addJButton)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Employees", jPanel4);

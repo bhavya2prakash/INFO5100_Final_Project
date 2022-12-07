@@ -1217,6 +1217,11 @@ public class MainJFrameForm extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
+        UI.SystemAdmin.SystemAdminWorkArea s = new UI.SystemAdmin.SystemAdminWorkArea();
+        jPanel1.removeAll();
+        jPanel1.add(pnlCreateUser); 
+        jPanel1.repaint();
+        jPanel1.revalidate(); 
 
     }//GEN-LAST:event_btnRegisterActionPerformed
 

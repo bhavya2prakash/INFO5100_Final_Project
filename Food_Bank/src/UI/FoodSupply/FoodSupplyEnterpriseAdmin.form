@@ -309,7 +309,7 @@
                               <Component id="jLabel10" min="-2" pref="91" max="-2" attributes="0"/>
                               <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="addJButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addJButton" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jPasswordField1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -338,9 +338,9 @@
                           <Component id="jLabel10" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="addJButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="180" max="32767" attributes="0"/>
+                      <EmptySpace pref="179" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
