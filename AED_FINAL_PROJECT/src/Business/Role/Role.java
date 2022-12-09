@@ -20,10 +20,12 @@ public abstract class Role {
     public enum RoleType{
         Admin("Admin"),
         Farmer("Farmer"),
-        CollectionCenter("CollectionCenter"),
+        CollectionCenter("Collection Center Manager"),
         LabAssistant("Lab Assistant"),
-        ResearchAssistant("ResearchAssistant"),
+        ResearchAssistant("Research Assistant"),
         Transportation("Transportation"),
+        CustomerService("Customer Service Employee"),
+        Delivery("Delivery Employee"),
         Marketing("Marketing");
         
         private String value;
