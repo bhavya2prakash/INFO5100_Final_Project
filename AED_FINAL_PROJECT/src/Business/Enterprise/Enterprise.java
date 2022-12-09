@@ -20,11 +20,10 @@ public abstract class Enterprise extends Organization{
     private static int count = 201;
     
     public enum EnterpriseType{
-        Agriculture("Agriculture"),
-        Transportation("Transportation"),
-        ResearchCenter("Research Center"),
-        SampleCollector("Sample Collector"),
-        Market("Market");
+        CropResearchEnterprise("Crop Research Enterprise"),
+        ProduceDeliverCenter("Produce Deliver Center"),
+        FeedbackManagementEnterprise("Feedback Management Enterprise"),
+        MarketEneterprise("Market Enterprise");
         private String value;
         private EnterpriseType(String value){
             this.value = value;

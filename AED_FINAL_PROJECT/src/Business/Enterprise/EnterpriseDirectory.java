@@ -29,25 +29,21 @@ public class EnterpriseDirectory {
     
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType enterpriseType){
         Enterprise enterprise = null;
-        if(enterpriseType == Enterprise.EnterpriseType.Agriculture){
-            enterprise = new AgricultureEnterprise(name);
+        if(enterpriseType == Enterprise.EnterpriseType.CropResearchEnterprise){
+            enterprise = new CropResearchEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(enterpriseType == Enterprise.EnterpriseType.ResearchCenter){
-            enterprise = new ResearchCenterEnterprise(name);
+        else if(enterpriseType == Enterprise.EnterpriseType.FeedbackManagementEnterprise){
+            enterprise = new FeedbackManagementEnterprise(name);
             enterpriseList.add(enterprise);
         }
-       
-        else if(enterpriseType == Enterprise.EnterpriseType.SampleCollector){
-            enterprise = new SampleCollectorEnterprise(name);
-            enterpriseList.add(enterprise);
-        }
-        else if(enterpriseType == Enterprise.EnterpriseType.Transportation){
-            enterprise = new TransportationEnterprise(name);
+      
+        else if(enterpriseType == Enterprise.EnterpriseType.ProduceDeliverCenter){
+            enterprise = new ProduceDeliveryEnterprise(name);
             enterpriseList.add(enterprise);
         }
         
-        else if(enterpriseType == Enterprise.EnterpriseType.Market){
+        else if(enterpriseType == Enterprise.EnterpriseType.MarketEneterprise){
             enterprise = new MarketEnterprise(name);
             enterpriseList.add(enterprise);
         }

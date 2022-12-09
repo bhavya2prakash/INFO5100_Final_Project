@@ -20,7 +20,7 @@ import java.nio.file.Paths;
  */
 public class DB4OUtil {
     
-    private static final String FILENAME = Paths.get("DataBankFinalProject").toAbsolutePath().toString(); // path to the data store //D:\\ ///Users/kkgarg/Desktop/AED_FINAL_PROJECT/DataBank.db4o
+    private static final String FILENAME = Paths.get("DataBankFinalProject.db4o").toAbsolutePath().toString(); // path to the data store //D:\\ ///Users/kkgarg/Desktop/AED_FINAL_PROJECT/DataBank.db4o
     private static DB4OUtil dB4OUtil;
     
     public synchronized static DB4OUtil getInstance(){
