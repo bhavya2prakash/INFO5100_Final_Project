@@ -5,6 +5,8 @@
  */
 package Business;
 
+import Business.Farmer.Farmer;
+import Business.Farmer.FarmerDirectory;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.Role;
@@ -18,12 +20,27 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private ArrayList<Network> networkList;
+//    private FarmerDirectory farmerList = new FarmerDirectory();
     private static EcoSystem business;
 
     private EcoSystem() {
         super(null,null);
         networkList = new ArrayList<Network>();
+       
+        
     }
+
+//    public FarmerDirectory getFarmerList() {
+//        return farmerList;
+//    }
+//
+//    public void setFarmerList(FarmerDirectory farmerList) {
+//        this.farmerList = farmerList;
+//    }
+    
+
+   
+    
 
     public ArrayList<Network> getNetworkList() {
         return networkList;

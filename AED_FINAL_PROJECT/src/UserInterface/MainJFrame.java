@@ -9,6 +9,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Role.FarmerRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Graphics;
@@ -280,6 +281,7 @@ public class MainJFrame extends javax.swing.JFrame {
             passwordTextField.setText("");
             return;
         }
+
         else
         {
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
