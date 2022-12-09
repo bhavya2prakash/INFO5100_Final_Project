@@ -90,7 +90,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         enterpriseJComboBox.removeAllItems();
         
         for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
-            if((enterprise.getEnterpriseType().getValue().equals("Agriculture")))
+            if((enterprise.getEnterpriseType().getValue().equals("Crop Research Enterprise")))
             {
                 enterpriseJComboBox.addItem(enterprise);
             }
@@ -109,7 +109,6 @@ public class SignUpJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         farmerNameTextField = new javax.swing.JTextField();
@@ -117,12 +116,13 @@ public class SignUpJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         createAccountBtn = new javax.swing.JButton();
         passwordTextField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        networkJComboBox = new javax.swing.JComboBox();
-        enterpriseJComboBox = new javax.swing.JComboBox();
         passwordValidationJLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        networkJComboBox = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        enterpriseJComboBox = new javax.swing.JComboBox();
 
         setLayout(null);
 
@@ -131,15 +131,10 @@ public class SignUpJPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(220, 190, 550, 29);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Name :");
-        add(jLabel2);
-        jLabel2.setBounds(320, 250, 80, 17);
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("User Name:");
         add(jLabel3);
-        jLabel3.setBounds(320, 300, 80, 15);
+        jLabel3.setBounds(320, 390, 80, 15);
 
         backBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         backBtn.setText("Back");
@@ -149,16 +144,16 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(backBtn);
-        backBtn.setBounds(60, 520, 90, 23);
+        backBtn.setBounds(60, 520, 90, 22);
         add(farmerNameTextField);
         farmerNameTextField.setBounds(450, 250, 166, 30);
         add(userNameTextField);
-        userNameTextField.setBounds(450, 290, 166, 30);
+        userNameTextField.setBounds(450, 380, 166, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Password:");
         add(jLabel4);
-        jLabel4.setBounds(320, 340, 70, 15);
+        jLabel4.setBounds(320, 430, 70, 15);
 
         createAccountBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         createAccountBtn.setText("Create Account");
@@ -168,19 +163,25 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(createAccountBtn);
-        createAccountBtn.setBounds(470, 520, 140, 23);
+        createAccountBtn.setBounds(470, 520, 140, 22);
         add(passwordTextField);
-        passwordTextField.setBounds(450, 340, 166, 30);
+        passwordTextField.setBounds(450, 430, 166, 30);
+        add(passwordValidationJLabel);
+        passwordValidationJLabel.setBounds(630, 340, 358, 28);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        add(jLabel7);
+        jLabel7.setBounds(0, 0, 1310, 130);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("Name :");
+        add(jLabel6);
+        jLabel6.setBounds(320, 250, 80, 17);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Networks:");
         add(jLabel5);
-        jLabel5.setBounds(320, 400, 70, 15);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Enterprise:");
-        add(jLabel6);
-        jLabel6.setBounds(320, 440, 80, 15);
+        jLabel5.setBounds(320, 290, 70, 15);
 
         networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +190,12 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(networkJComboBox);
-        networkJComboBox.setBounds(450, 400, 170, 30);
+        networkJComboBox.setBounds(450, 290, 170, 30);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("Enterprise:");
+        add(jLabel9);
+        jLabel9.setBounds(320, 330, 80, 15);
 
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -198,13 +204,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(enterpriseJComboBox);
-        enterpriseJComboBox.setBounds(450, 440, 170, 30);
-        add(passwordValidationJLabel);
-        passwordValidationJLabel.setBounds(630, 340, 358, 28);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
-        add(jLabel7);
-        jLabel7.setBounds(0, 0, 1310, 130);
+        enterpriseJComboBox.setBounds(450, 330, 170, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void createAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountBtnActionPerformed
@@ -238,6 +238,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
                     
                 }
             }
+//        system.getFarmerList().createFarmer(name);
         farmerNameTextField.setText("");    
         userNameTextField.setText("");
         passwordTextField.setText("");
@@ -258,10 +259,6 @@ public class SignUpJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
-
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
         // TODO add your handling code here:
         Network network = (Network) networkJComboBox.getSelectedItem();
@@ -270,6 +267,10 @@ public class SignUpJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_networkJComboBoxActionPerformed
 
+    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
@@ -277,12 +278,12 @@ public class SignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox enterpriseJComboBox;
     private javax.swing.JTextField farmerNameTextField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox networkJComboBox;
     private javax.swing.JTextField passwordTextField;
     private javax.swing.JLabel passwordValidationJLabel;

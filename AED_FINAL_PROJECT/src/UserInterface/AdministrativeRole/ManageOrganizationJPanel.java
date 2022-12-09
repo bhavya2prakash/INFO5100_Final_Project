@@ -67,6 +67,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             organizationJComboBox.addItem(Organization.Type.Research);
             organizationJComboBox.addItem(Organization.Type.Lab);
             organizationJComboBox.addItem(Organization.Type.CollectionCenter);
+            organizationJComboBox.addItem(Organization.Type.Farmer);
             
         }
         else if(value.equalsIgnoreCase("Produce Deliver Center")){
@@ -202,9 +203,9 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(orgNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(organizationJComboBox, 0, 201, Short.MAX_VALUE)
+                            .addComponent(orgNameTxtField))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +234,9 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(0, 4, Short.MAX_VALUE))
-                    .addComponent(orgNameTxtField))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(orgNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -253,6 +256,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         
         directory.createOrganization(type, name);
         populateTable();
+        orgNameTxtField.setText("");
     }//GEN-LAST:event_addOrganizationBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
