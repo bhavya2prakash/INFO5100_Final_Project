@@ -292,9 +292,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         Enterprise enterprise = (Enterprise) enterpriseNameComboBox.getSelectedItem();
         
         //ADDED CODE STARTS
-        Organization organization = null;
-        organization = new AdminOrganization();
-        enterprise.getOrganizationDirectory().getOrganizationList().add(organization);
+        //Organization organization = null;
+        //organization = new AdminOrganization();
+        //enterprise.getOrganizationDirectory().getOrganizationList().add(organization);
         //ADDED CODE ENDS
         
         String username = userNameTextField.getText();

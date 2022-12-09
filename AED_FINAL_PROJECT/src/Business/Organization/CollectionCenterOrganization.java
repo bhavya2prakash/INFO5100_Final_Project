@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class CollectionCenterOrganization extends Organization{
 
-    public CollectionCenterOrganization() {
-        super(Type.CollectionCenter.getValue());
+    public CollectionCenterOrganization(String name) {
+        super( name,Type.CollectionCenter.getValue());
     }
 
     

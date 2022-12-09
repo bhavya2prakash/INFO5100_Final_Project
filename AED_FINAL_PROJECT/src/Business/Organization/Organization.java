@@ -24,6 +24,7 @@ import Business.WorkQueue.QueryWorkQueue;
 public abstract class Organization {
     
     private String name;
+    private String organisationtype;
     //WORK QUEUE
     private WorkQueue workQueue;
     private MarketWorkQueue marketWorkQueue;
@@ -40,7 +41,7 @@ public abstract class Organization {
     public enum Type{
         Admin("Admin Organization"), CollectionCenter("CollectionCenter Organization"), Farmer("Farmer Organization"),
         Lab("Lab Organization"),Research("Research Organization"),
-        Marketing("Marketing Organization");
+        Marketing("Marketing Organization"),CustomerService("Customer Service Organization"),Delivery("Delivery Organization");
         
         
         
@@ -53,9 +54,19 @@ public abstract class Organization {
         }
         
     }
+
+    public String getOrganisationtype() {
+        return organisationtype;
+    }
+
+    public void setOrganisationtype(String organisationtype) {
+        this.organisationtype = organisationtype;
+    }
     
-    public Organization(String name) {
+    
+    public Organization(String name,String type) {
         this.name = name;
+        this.organisationtype=type;
         workQueue = new WorkQueue();
         marketWorkQueue = new MarketWorkQueue();
         feedbackWorkQueue = new FarmerFeedbackWorkQueue();

@@ -66,7 +66,7 @@ public abstract class Enterprise extends Organization{
     }
     
     public Enterprise(String name, EnterpriseType enterpriseType) {
-        super(name);
+        super(name,null);
         this.enterpriseType = enterpriseType;
         organizationDirectory = new OrganizationDirectory();
          this.enterpriseId=count;

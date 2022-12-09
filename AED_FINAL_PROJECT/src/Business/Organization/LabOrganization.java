@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class LabOrganization extends Organization{
     
-    public LabOrganization() {
-        super(Type.Lab.getValue());
+    public LabOrganization(String name) {
+        super( name, Type.Lab.getValue());
     }
 
     

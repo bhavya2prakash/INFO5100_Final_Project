@@ -22,8 +22,8 @@ public class ResearchOrganization extends Organization{
     private GeneralCropInfoDirectory generalCropInfoDirectory;
     
     
-    public ResearchOrganization() {
-        super(Type.Research.getValue());
+    public ResearchOrganization(String name) {
+        super(name,Type.Research.getValue());
         this.cropDirectory = new CropDirectory();
         this.generalCropInfoDirectory = new GeneralCropInfoDirectory();
     }

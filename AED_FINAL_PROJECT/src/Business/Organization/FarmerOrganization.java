@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class FarmerOrganization extends Organization{
     
-    public FarmerOrganization() {
-        super(Type.Farmer.getValue());
+    public FarmerOrganization(String name) {
+        super( name ,Type.Farmer.getValue());
     }
 
     

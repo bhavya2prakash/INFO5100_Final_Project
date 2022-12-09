@@ -23,27 +23,35 @@ public class OrganizationDirectory {
         return organizationList;
     }
     
-    public Organization createOrganization(Type type){
+    public Organization createOrganization(Type type, String name){
         Organization organization = null;
         if (type.getValue().equals(Type.Farmer.getValue())){
-            organization = new FarmerOrganization();
+            organization = new FarmerOrganization(name);
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Type.CollectionCenter.getValue())){
-            organization = new CollectionCenterOrganization();
+            organization = new CollectionCenterOrganization(name);
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Type.Lab.getValue())){
-            organization = new LabOrganization();
+            organization = new LabOrganization(name);
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Type.Research.getValue())){
-            organization = new ResearchOrganization();
+            organization = new ResearchOrganization(name);
             organizationList.add(organization);
         }
         
         else if (type.getValue().equals(Type.Marketing.getValue())){
-            organization = new MarketingOrganization();
+            organization = new MarketingOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Type.CustomerService.getValue())){
+            organization = new CustomerServiceOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Type.Delivery.getValue())){
+            organization = new DeliveryOrganization(name);
             organizationList.add(organization);
         }
         

@@ -57,9 +57,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
   }
 
     public void checkAdminType(){
-       if(!(enterprise.getEnterpriseType().getValue().equals("Agriculture"))){
-           feedbackBtn.setEnabled(false);
-           reportsBtn.setEnabled(false);
+       if((enterprise.getEnterpriseType().getValue().equals("Feedback Management Enterprise"))){
+           feedbackBtn.setVisible(true);
+           reportsBtn.setVisible(true);
+       }
+       else{
+            feedbackBtn.setVisible(false);
+           reportsBtn.setVisible(false);
+           
        }
    }
     /**

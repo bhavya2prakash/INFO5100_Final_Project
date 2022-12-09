@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class MarketingOrganization extends Organization{
     
-    public MarketingOrganization() {
-        super(Type.Marketing.getValue());
+    public MarketingOrganization(String name) {
+        super( name,Type.Marketing.getValue());
     }
 
     
