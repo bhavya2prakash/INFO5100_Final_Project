@@ -4,7 +4,7 @@
  */
 package Business.Organization;
 
-import Business.Role.CollectionCenterRole;
+import Business.Role.DeliveryRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class DeliveryOrganization extends Organization{
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new CollectionCenterRole());
+        roles.add(new DeliveryRole());
         return roles;
     }
     
