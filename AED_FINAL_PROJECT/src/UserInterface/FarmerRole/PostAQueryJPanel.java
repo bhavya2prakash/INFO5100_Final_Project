@@ -8,8 +8,8 @@ package UserInterface.FarmerRole;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.CustomerServiceOrganization;
 import Business.Organization.Organization;
-import Business.Organization.ResearchOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.QueryWorkRequest;
 import UserInterface.SignUpJPanel;
@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -317,11 +316,23 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
             
             Organization org = null;
 
-            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
-            if (organization instanceof ResearchOrganization){
-                org = organization;
-                break;
-            }
+//            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+//            if (organization instanceof ResearchOrganization){
+//                org = organization;
+//                break;
+//            }
+//        }
+            for (Network n : business.getNetworkList()){
+                for(Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()){
+                    for(Organization o : e.getOrganizationDirectory().getOrganizationList()){
+                        if (o instanceof CustomerServiceOrganization){
+                            org = o;
+                            break;
+                            }
+                        
+                    }
+                }
+            
         }
             if (org!=null)
             {

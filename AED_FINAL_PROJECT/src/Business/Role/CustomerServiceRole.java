@@ -6,10 +6,10 @@ package Business.Role;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
-import Business.Organization.CollectionCenterOrganization;
+import Business.Organization.CustomerServiceOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import UserInterface.CollectionCenterRole.CollectionCenterWorkAreaJPanel;
+import UserInterface.CustomerServiceRole.ViewQueriesJPanel2;
 import javax.swing.JPanel;
 
 /**
@@ -21,7 +21,7 @@ public class CustomerServiceRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new CollectionCenterWorkAreaJPanel(userProcessContainer, account, (CollectionCenterOrganization)organization, enterprise);
+        return new ViewQueriesJPanel2(userProcessContainer, account, (CustomerServiceOrganization)organization, enterprise);
     }
     @Override
    public String toString(){
