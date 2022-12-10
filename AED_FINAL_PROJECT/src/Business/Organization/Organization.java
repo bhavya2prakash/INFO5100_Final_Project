@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import Business.Role.Role;
 import Business.WorkQueue.FarmerFeedbackWorkQueue;
 import Business.WorkQueue.MarketWorkQueue;
+import Business.WorkQueue.ProduceDeliveryWorkQueue;
 import Business.WorkQueue.QueryWorkQueue;
 
 
@@ -35,6 +36,7 @@ public abstract class Organization {
     private UserAccountDirectory userAccountDirectory;
     private FarmerDirectory farmerDirectory;
     private int organizationID;
+    private ProduceDeliveryWorkQueue produceDeliveryWorkQueue;
     private static int counter=301;
     Enterprise.EnterpriseType type;
     
@@ -68,6 +70,7 @@ public abstract class Organization {
         this.name = name;
         this.organisationtype=type;
         workQueue = new WorkQueue();
+        produceDeliveryWorkQueue = new ProduceDeliveryWorkQueue();
         marketWorkQueue = new MarketWorkQueue();
         feedbackWorkQueue = new FarmerFeedbackWorkQueue();
         employeeDirectory = new EmployeeDirectory();
@@ -78,6 +81,15 @@ public abstract class Organization {
         ++counter;
         
     }
+
+    public ProduceDeliveryWorkQueue getProduceDeliveryWorkQueue() {
+        return produceDeliveryWorkQueue;
+    }
+
+    public void setProduceDeliveryWorkQueue(ProduceDeliveryWorkQueue produceDeliveryWorkQueue) {
+        this.produceDeliveryWorkQueue = produceDeliveryWorkQueue;
+    }
+    
     
     public abstract ArrayList<Role> getSupportedRole();
     

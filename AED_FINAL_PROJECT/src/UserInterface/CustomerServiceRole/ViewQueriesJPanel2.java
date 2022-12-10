@@ -45,6 +45,7 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
         this.userAccount = account;
         backgroundImage("/resources/imgs/HP2.jpg");
         populateViewQueryTable();
+        jButton1.setVisible(false);
         
     }
     
