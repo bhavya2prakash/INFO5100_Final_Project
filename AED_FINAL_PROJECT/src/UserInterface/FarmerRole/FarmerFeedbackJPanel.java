@@ -10,6 +10,8 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.AdminOrganization;
 import Business.Organization.CollectionCenterOrganization;
+import Business.Organization.CustomerServiceOrganization;
+import Business.Organization.DeliveryOrganization;
 import Business.Organization.Organization;
 import Business.WorkQueue.FarmerFeedbackWorkRequest;
 import UserInterface.SignUpJPanel;
@@ -327,12 +329,36 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
         request.setRemarks(remarks);
         
         Organization org = null;
-        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+//        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+//            
+//            if (organization instanceof AdminOrganization){
+//                org = organization;
+//                break;
+//            }
+//        }
+//       for (Network n : business.getNetworkList()){
+//      for(Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()){
+//                    for(Organization o : e.getOrganizationDirectory().getOrganizationList()){
+//                        if (o instanceof AdminOrganization && e.getEnterpriseType().getValue()=="Feedback Management Enterprise"){
+//                            org = o;
+//                            break;
+//                            }
+//                        
+//                    }
+//                }
+//            
+//       } 
+  for (Network n : business.getNetworkList()){
+                for(Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()){
+                    for(Organization o : e.getOrganizationDirectory().getOrganizationList()){
+                        if (o instanceof AdminOrganization){
+                            org = o;
+                            break;
+                            }
+                        
+                    }
+                }
             
-            if (organization instanceof AdminOrganization){
-                org = organization;
-                break;
-            }
         }
         
         if (org!=null){
