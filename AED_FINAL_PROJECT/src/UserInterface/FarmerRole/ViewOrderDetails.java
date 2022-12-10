@@ -5,9 +5,15 @@
  */
 package UserInterface.FarmerRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.DeliveryOrganization;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.MarketOrder;
 import Business.WorkQueue.MarketWorkRequest;
+import Business.WorkQueue.WorkRequest;
 import UserInterface.SignUpJPanel;
 import UserInterface.SystemAdminRole.ManageNetworkJPanel;
 import java.awt.CardLayout;
@@ -36,10 +42,12 @@ public class ViewOrderDetails extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private UserAccount userAccount;
     private MarketWorkRequest request;
+    private EcoSystem business;
     private Image image2;
-    ViewOrderDetails(JPanel userProcessContainer, UserAccount userAccount, MarketWorkRequest request) {
+    ViewOrderDetails(JPanel userProcessContainer, UserAccount userAccount, MarketWorkRequest request,EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.business=business;
         this.userAccount = userAccount;
         this.request = request;
         backgroundImage("/resources/imgs/HP2.jpg");
@@ -110,6 +118,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         viewOrderBtn = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
+        requestDeliveryBtn = new javax.swing.JButton();
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,13 +200,26 @@ public class ViewOrderDetails extends javax.swing.JPanel {
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
 
+        requestDeliveryBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        requestDeliveryBtn.setText("Request Delivery ");
+        requestDeliveryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestDeliveryBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 1327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 1327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(307, 307, 307)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,29 +265,32 @@ public class ViewOrderDetails extends javax.swing.JPanel {
                                 .addComponent(backBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(94, 94, 94)
-                                .addComponent(jLabel17))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(viewOrderBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                                .addComponent(jLabel17)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(viewOrderBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(requestDeliveryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(273, 273, 273))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(viewOrderBtn)))
-                .addGap(10, 10, 10)
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(viewOrderBtn)
+                        .addGap(48, 48, 48)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(requestDeliveryBtn))
+                        .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(vendorNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -337,6 +362,48 @@ public class ViewOrderDetails extends javax.swing.JPanel {
         
     }//GEN-LAST:event_viewOrderBtnActionPerformed
 
+    private void requestDeliveryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestDeliveryBtnActionPerformed
+        // TODO add your handling code here:
+     
+            //String farmerName  = farmerNamejTextField.getText();
+           // String question = questionJTextArea.getText();
+            
+            
+            WorkRequest workRequest = new WorkRequest();
+            workRequest.setSender(userAccount);
+            workRequest.setMessage("hello");
+            workRequest.setStatus("Requested");
+            
+            Organization org = null;
+
+//            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+//            if (organization instanceof ResearchOrganization){
+//                org = organization;
+//                break;
+//            }
+//        }
+            for (Network n : business.getNetworkList()){
+                for(Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()){
+                    for(Organization o : e.getOrganizationDirectory().getOrganizationList()){
+                        if (o instanceof DeliveryOrganization){
+                            org = o;
+                            break;
+                            }
+                        
+                    }
+                }
+            
+        }
+            if (org!=null)
+            {
+                org.getWorkQueue().getWorkRequestList().add(workRequest);
+                userAccount.getWorkQueue().getWorkRequestList().add(workRequest);
+                JOptionPane.showMessageDialog(null, "Requested Successfully");
+            }
+            
+            
+    }//GEN-LAST:event_requestDeliveryBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
@@ -355,6 +422,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField orderQuantityTextField;
     private javax.swing.JTable orderTable;
+    private javax.swing.JButton requestDeliveryBtn;
     private javax.swing.JTextField vendorAddL1TextField;
     private javax.swing.JTextField vendorAddLine2TextField;
     private javax.swing.JTextField vendorContactJTextField;

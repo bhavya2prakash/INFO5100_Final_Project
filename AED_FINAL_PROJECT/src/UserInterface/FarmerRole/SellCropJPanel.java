@@ -513,7 +513,7 @@ public class SellCropJPanel extends javax.swing.JPanel {
        try{
        MarketWorkRequest request = (MarketWorkRequest)sellCropJTable.getValueAt(selectedRow, 0);
        
-       ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer, userAccount, request);
+       ViewOrderDetails viewOrderDetails = new ViewOrderDetails(userProcessContainer, userAccount, request,business);
        userProcessContainer.add("viewcropdetails", viewOrderDetails);
        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
        layout.next(userProcessContainer);
