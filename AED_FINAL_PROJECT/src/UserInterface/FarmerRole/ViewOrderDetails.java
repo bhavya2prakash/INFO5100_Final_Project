@@ -413,7 +413,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
             if (org!=null)
             {
                 org.getWorkQueue().getWorkRequestList().add(workRequest);
-                userAccount.getWorkQueue().getWorkRequestList().add(workRequest);
+                //userAccount.getWorkQueue().getWorkRequestList().add(workRequest);
                 JOptionPane.showMessageDialog(null, "Requested Successfully");
             }
             

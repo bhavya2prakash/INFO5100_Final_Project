@@ -9,6 +9,7 @@ import Business.Employee.Employee;
 import Business.Farmer.Farmer;
 import Business.Role.Role;
 import Business.WorkQueue.MarketWorkQueue;
+import Business.WorkQueue.ProduceDeliveryWorkQueue;
 import Business.WorkQueue.QueryWorkQueue;
 import Business.WorkQueue.WorkQueue;
 
@@ -26,11 +27,21 @@ public class UserAccount {
     private WorkQueue workQueue;
     private MarketWorkQueue marketWorkQueue;
     private QueryWorkQueue queryWorkQueue;
+    private ProduceDeliveryWorkQueue produceDeliveryWorkQueue;
 
     public UserAccount() {
         workQueue = new WorkQueue();
         marketWorkQueue = new MarketWorkQueue();
         queryWorkQueue = new QueryWorkQueue();
+        produceDeliveryWorkQueue = new ProduceDeliveryWorkQueue();
+    }
+
+    public ProduceDeliveryWorkQueue getProduceDeliveryWorkQueue() {
+        return produceDeliveryWorkQueue;
+    }
+
+    public void setProduceDeliveryWorkQueue(ProduceDeliveryWorkQueue produceDeliveryWorkQueue) {
+        this.produceDeliveryWorkQueue = produceDeliveryWorkQueue;
     }
     
     
