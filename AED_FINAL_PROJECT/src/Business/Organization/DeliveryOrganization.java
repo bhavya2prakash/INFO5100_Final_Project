@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class DeliveryOrganization extends Organization{
 
     public DeliveryOrganization(String name) {
-        super( name,Organization.Type.CustomerService.getValue());
+        super( name,Organization.Type.Delivery.getValue());
     }
 
     
