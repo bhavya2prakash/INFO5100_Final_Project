@@ -9,9 +9,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.AdminOrganization;
-import Business.Organization.CollectionCenterOrganization;
 import Business.Organization.CustomerServiceOrganization;
-import Business.Organization.DeliveryOrganization;
 import Business.Organization.Organization;
 import Business.WorkQueue.FarmerFeedbackWorkRequest;
 import UserInterface.SignUpJPanel;
@@ -329,37 +327,32 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
         request.setRemarks(remarks);
         
         Organization org = null;
-//        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
-//            
-//            if (organization instanceof AdminOrganization){
-//                org = organization;
-//                break;
-//            }
-//        }
-//       for (Network n : business.getNetworkList()){
-//      for(Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()){
-//                    for(Organization o : e.getOrganizationDirectory().getOrganizationList()){
-//                        if (o instanceof AdminOrganization && e.getEnterpriseType().getValue()=="Feedback Management Enterprise"){
-//                            org = o;
-//                            break;
-//                            }
-//                        
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+            
+            if (organization instanceof AdminOrganization){
+                org = organization;
+                break;
+            }
+        }
+////        Organization org = null;
+//        for(Network network : business.getNetworkList())
+//        {
+//            for(Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList())
+//            {    if(enterprise.getEnterpriseType().getValue()=="Feedback Management Enterprise"){
+//               for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList())
+//               {
+//                    if (organization instanceof AdminOrganization)
+//                    {
+//                        org = organization;
+//                       // org.getMarketWorkQueue().getMarkerWorkRequestList().add(marketWorkRequest);
+//                       // org.getFeedbackWorkQueue().getFarmerFeedbackList().add(request);
+//                            //break;
+//                        //Adding in all markets of all networks    
 //                    }
 //                }
-//            
-//       } 
-  for (Network n : business.getNetworkList()){
-                for(Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()){
-                    for(Organization o : e.getOrganizationDirectory().getOrganizationList()){
-                        if (o instanceof AdminOrganization){
-                            org = o;
-                            break;
-                            }
-                        
-                    }
-                }
-            
-        }
+//            }
+//            }
+//        }
         
         if (org!=null){
             org.getFeedbackWorkQueue().getFarmerFeedbackList().add(request);

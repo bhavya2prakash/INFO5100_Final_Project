@@ -47,6 +47,7 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         backgroundImage("/resources/imgs/HP2.jpg");
         populateTable();
+        viewQueriesjButton.setVisible(false);
         
     }
     
