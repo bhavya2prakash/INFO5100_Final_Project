@@ -68,6 +68,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             organizationJComboBox.addItem(Organization.Type.Lab);
             organizationJComboBox.addItem(Organization.Type.CollectionCenter);
             organizationJComboBox.addItem(Organization.Type.Farmer);
+           
             
         }
         else if(value.equalsIgnoreCase("Produce Deliver Center")){
@@ -76,6 +77,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         }
          else if(value.equalsIgnoreCase("Feedback Management Enterprise")){
             organizationJComboBox.addItem(Organization.Type.CustomerService);
+             
    
         }
          else if(value.equalsIgnoreCase("Market Enterprise")){

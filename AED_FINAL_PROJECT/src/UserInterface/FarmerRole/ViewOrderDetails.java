@@ -126,7 +126,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Buyer's Name", "Quantity Requested", "Date Requested", "Buyer's Contact", "Delivery Request"
+                "Vendor", "Quantity Requested", "Date Requested", "Buyer's Contact", "Delivery Request"
             }
         ));
         jScrollPane1.setViewportView(orderTable);

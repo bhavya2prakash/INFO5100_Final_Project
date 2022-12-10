@@ -309,8 +309,8 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordTextField.setText("");
 
         userProcessContainer.removeAll();
-        JPanel blankJP = new JPanel();
-        userProcessContainer.add("blank",blankJP);
+        LogoutScreen jPanel = new LogoutScreen ();
+        userProcessContainer.add("blank",jPanel);
         CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
         crdLyt.next(userProcessContainer);
         dB4OUtil.storeSystem(system);
