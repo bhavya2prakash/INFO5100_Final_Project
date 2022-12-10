@@ -15,7 +15,6 @@ import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import UserInterface.SignUpJPanel;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -296,6 +295,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         //organization = new AdminOrganization();
         //enterprise.getOrganizationDirectory().getOrganizationList().add(organization);
         //ADDED CODE ENDS
+        Organization organization = null;
+        organization = new AdminOrganization("Enterprise Admin");
+        enterprise.getOrganizationDirectory().getOrganizationList().add(organization);
         
         String username = userNameTextField.getText();
         String password = String.valueOf(passwordField.getPassword());

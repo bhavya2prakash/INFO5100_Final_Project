@@ -75,13 +75,14 @@ public class ViewOrderDetails extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(MarketOrder order : request.getMarketOrderDirectory().getMarketOrderList()){
-            Object[] row = new Object[4];
+            Object[] row = new Object[5];
             row[0] = order;
             row[1] = order.getOrderQuantity();
             Date date = order.getDateOrdered();
             String dateString = String.valueOf(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date));
             row[2] = dateString;
             row[3] = order.getBuyerContactInfo();
+            row[4] = order.getStatus();
             model.addRow(row);
         }
     }
@@ -125,7 +126,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Buyer's Name", "Quantity Requested", "Date Requested", "Buyer's Contact"
+                "Buyer's Name", "Quantity Requested", "Date Requested", "Buyer's Contact", "Delivery Request"
             }
         ));
         jScrollPane1.setViewportView(orderTable);
@@ -285,20 +286,20 @@ public class ViewOrderDetails extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(viewOrderBtn)
                         .addGap(48, 48, 48)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(requestDeliveryBtn))
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(vendorNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(vendorAddL1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(requestDeliveryBtn))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(vendorNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vendorAddL1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(vendorAddLine2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,7 +308,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(vendorContactJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(vendorZipcodeJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +324,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
                     .addComponent(jLabel19))
                 .addGap(18, 18, 18)
                 .addComponent(backBtn)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -368,10 +369,25 @@ public class ViewOrderDetails extends javax.swing.JPanel {
             //String farmerName  = farmerNamejTextField.getText();
            // String question = questionJTextArea.getText();
             
-            
+        int selectedRow = orderTable.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row");
+            return;
+        }
+        
+        
+        
+        MarketOrder order = (MarketOrder)orderTable.getValueAt(selectedRow, 0);
+         if (order.getStatus()=="Raised"){
+            JOptionPane.showMessageDialog(null, "Request already raised");
+            return;
+        }
+        order.setStatus("Raised");
+        String address = order.getBuyerAddressLine1()+","+order.getBuyerAddressLine2()+ ","+String.valueOf(order.getBuyerZipcode());
             WorkRequest workRequest = new WorkRequest();
             workRequest.setSender(userAccount);
-            workRequest.setMessage("hello");
+            workRequest.setMessage(address);
             workRequest.setStatus("Requested");
             
             Organization org = null;
@@ -401,7 +417,7 @@ public class ViewOrderDetails extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Requested Successfully");
             }
             
-            
+        populateOrderTable();    
     }//GEN-LAST:event_requestDeliveryBtnActionPerformed
 
 

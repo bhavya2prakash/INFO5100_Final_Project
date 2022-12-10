@@ -22,7 +22,16 @@ public class MarketOrder {
     private long buyerContactInfo;
     private String buyerRemarks;
     private int orderQuantity;
+    private String status = "Request Pending";
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
     public UserAccount getBuyer() {
         return buyer;
     }

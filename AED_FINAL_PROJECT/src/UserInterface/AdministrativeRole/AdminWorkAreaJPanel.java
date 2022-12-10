@@ -57,7 +57,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
   }
 
     public void checkAdminType(){
-       if((enterprise.getEnterpriseType().getValue().equals("Feedback Management Enterprise"))){
+       if((enterprise.getEnterpriseType().getValue().equals("Crop Research Enterprise"))){
            feedbackBtn.setVisible(true);
            reportsBtn.setVisible(true);
        }
