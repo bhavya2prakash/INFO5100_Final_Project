@@ -6,6 +6,7 @@
 package UserInterface.SystemAdminRole;
 
 import Business.EcoSystem;
+import Business.Map.MapViewer;
 import Business.Network.Network;
 import UserInterface.FarmerRole.FarmerHomePageJPanel;
 import UserInterface.SignUpJPanel;
@@ -123,7 +124,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel3.setText("Networks");
 
-        btnSetLocation.setText("Select Location");
+        btnSetLocation.setText("View on Map");
         btnSetLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSetLocationActionPerformed(evt);
@@ -214,22 +215,22 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private void btnSetLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetLocationActionPerformed
         // TODO add your handling code here:
-//        
-//        if (networkNameTextField.getText().trim().isEmpty()){
-//        
-//            JOptionPane.showMessageDialog(null, "Enter Address First");
-//        
-//        }else{
-//              SwingUtilities.invokeLater(new Runnable() {
-//                  @Override
-//                  public void run() {
-//                      MapViewer Browser = new MapViewer();
-//                      Browser.setVisible(true);
-//                      Browser.loadURL("https://google.com/maps/search/?api=1&query" + networkNameTextField.getText().trim());
-//                  }
-//              });
-//            
-//            }
+        
+        if (networkNameTextField.getText().trim().isEmpty()){
+        
+            JOptionPane.showMessageDialog(null, "Enter Address First");
+        
+        }else{
+              SwingUtilities.invokeLater(new Runnable() {
+                  @Override
+                  public void run() {
+                      MapViewer Browser = new MapViewer();
+                      Browser.setVisible(true);
+                      Browser.loadURL("https://google.com/maps/search/?api=1&query=" + networkNameTextField.getText().trim());
+                  }
+              });
+            
+            }
      
     }//GEN-LAST:event_btnSetLocationActionPerformed
 
