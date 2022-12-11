@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kkgarg
+ * @author Bhavya Prakash
  */
 public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
@@ -39,28 +39,13 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        //backgroundImage("/resources/imgs/HP2.jpg");
         populateTable();
         populateComboBox();
     }
-    
-//    private void backgroundImage(String str){
-//        try {
-//            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-//            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-//        } catch (IOException ex) {
-//            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
 
     private void populateTable() {
+        try{
+        
         DefaultTableModel model = (DefaultTableModel) enterpriseTable.getModel();
 
         model.setRowCount(0);
@@ -75,9 +60,17 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 model.addRow(row);
             }
         }
+        
+        } 
+        
+        catch (Exception e){
+            
+        }
     }
 
     private void populateComboBox() {
+        try{
+        
         networkComboBox.removeAllItems();
         enterpriseTypeComboBox.removeAllItems();
 
@@ -88,7 +81,11 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
             enterpriseTypeComboBox.addItem(type);
         }
-
+        }
+        
+        catch (Exception e){
+            
+        }
     }
 
 
@@ -243,6 +240,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
+        try {
+        
         Network network = (Network) networkComboBox.getSelectedItem();
         Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseTypeComboBox.getSelectedItem();
 
@@ -259,6 +258,12 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
         populateTable();
         enterpriseNameTextField.setText("");
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
