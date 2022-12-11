@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author kkgarg
+ * @author Supriya Tripathi
  */
 public class GeneralCropInformationJPanel extends javax.swing.JPanel {
 
@@ -37,7 +37,7 @@ public class GeneralCropInformationJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private Enterprise enterprise;
     private EcoSystem business;
-    private Image image2;
+    
     
     public GeneralCropInformationJPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, EcoSystem business) 
     {
@@ -46,29 +46,15 @@ public class GeneralCropInformationJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = business;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateCropComboBox();
         
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(GeneralCropInformationJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
+   
     
     private void populateCropComboBox()
     {
+        try{
         cropNameJComboBox.removeAllItems();
         for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList())
         {
@@ -80,14 +66,16 @@ public class GeneralCropInformationJPanel extends javax.swing.JPanel {
                 }
             }       
         }
+        }
+        
+        catch (Exception e){
+            
+        }
     }
     public void populateDetails(GeneralCropInfo generalCropInfo)
     {
         cropNameJLabel.setText(generalCropInfo.getCropName());
         
-        //final String html1 = "<html><body style='width: ";
-        //final String html2 = "px' style='line-height: 100%'>";
-        //About Crop
         aboutCropJTextArea.setText(generalCropInfo.getAboutCrop());
         aboutCropJTextArea.setFont(new Font("Arial", Font.BOLD,12));
         aboutCropJTextArea.setForeground(Color.DARK_GRAY);
@@ -140,7 +128,10 @@ public class GeneralCropInformationJPanel extends javax.swing.JPanel {
         fertilizerJTextArea = new javax.swing.JTextArea();
         backJButton = new javax.swing.JButton();
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        setBackground(new java.awt.Color(238, 231, 219));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         jLabel1.setText("Select Crop:");
 
@@ -282,10 +273,16 @@ public class GeneralCropInformationJPanel extends javax.swing.JPanel {
 
     private void cropNameJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cropNameJComboBoxActionPerformed
         // TODO add your handling code here:
+       try{
+        
         GeneralCropInfo generalCropInfo = (GeneralCropInfo) cropNameJComboBox.getSelectedItem();
         if (generalCropInfo != null){
             populateDetails(generalCropInfo);
         }
+       }
+       catch (Exception e){
+           
+       }
     }//GEN-LAST:event_cropNameJComboBoxActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

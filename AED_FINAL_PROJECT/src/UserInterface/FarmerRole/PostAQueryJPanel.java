@@ -27,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kkgarg
+ * @author Supriya Tripathi
  */
 public class PostAQueryJPanel extends javax.swing.JPanel {
 
@@ -38,7 +38,7 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private Enterprise enterprise;
     private EcoSystem business;
-    private Image image2;
+    
     
     public PostAQueryJPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, EcoSystem business) 
     {
@@ -47,27 +47,11 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = business;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateQueryTable();
         farmerNamejTextField.setText(userAccount.getFarmer().getFarmerName());
         
     }
-    
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(FarmerHomePageJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
+   
     
     public void populateQueryTable(){
         DefaultTableModel model = (DefaultTableModel) questionJTable.getModel();
@@ -110,6 +94,8 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Have Questions?? Please Write To Us");
 
@@ -131,7 +117,7 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(questionJTable);
 
-        viewResponseJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        viewResponseJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewResponseJButton.setText("View Response");
         viewResponseJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +125,7 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Farmer's Name:");
 
         farmerNamejTextField.setEditable(false);
@@ -149,10 +135,10 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         questionJTextArea.setRows(5);
         jScrollPane2.setViewportView(questionJTextArea);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Please write your query:");
 
-        postJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        postJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         postJButton.setText("Post Question");
         postJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +146,7 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Response:");
 
         responseJTextArea.setEditable(false);
@@ -170,7 +156,7 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         responseJTextArea.setEnabled(false);
         jScrollPane3.setViewportView(responseJTextArea);
 
-        backJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,10 +171,10 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         questionJTextArea1.setEnabled(false);
         jScrollPane4.setViewportView(questionJTextArea1);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Question:");
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -225,11 +211,11 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(439, 439, 439)
-                        .addComponent(backJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(347, 347, 347)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(backJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(519, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -269,9 +255,9 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
                                 .addComponent(jLabel9)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(backJButton)
-                .addGap(65, 65, 65))
+                .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -27,7 +27,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Lenovo
+ * @author Supriya Tripathi
  */
 public class FarmerFeedbackJPanel extends javax.swing.JPanel {
 
@@ -37,7 +37,6 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Enterprise enterprise;
     private EcoSystem business;
-    private Image image2;
     private String researchSatisfaction="";
     private String overallRating="";
     public FarmerFeedbackJPanel(JPanel userProcessContainer,Enterprise enterprise,EcoSystem business) {
@@ -45,24 +44,10 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.business = business;
-        backgroundImage("/resources/imgs/HP2.jpg");
+       
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -97,16 +82,18 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Your Feedback Is Important To Us");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Name:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("How  Userfriendly Is Our Website");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Are You Satisfied With The Research Solution Provided");
 
         researchSatisfactionRadioGrp.add(notSatisfiedRadio);
@@ -145,7 +132,7 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Overall Rating");
 
         overallRateRadioGroup.add(overallBadRadio);
@@ -177,7 +164,7 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
 
         userFriendlyDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Easy To Use", "Somewhat Difficult", "Very Difficult" }));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Remarks");
 
         remarksTextArea.setColumns(20);
@@ -200,7 +187,8 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -226,11 +214,14 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(notSatisfiedRadio)
                                     .addComponent(overallBadRadio))
-                                .addGap(3, 3, 3)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(satisfiedRadio)
-                                    .addComponent(overallGoodRadio))
-                                .addGap(43, 43, 43)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addComponent(overallGoodRadio))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(satisfiedRadio)))
+                                .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(overallExcellentRadio)
                                     .addGroup(layout.createSequentialGroup()
@@ -288,7 +279,7 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jButton2))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -306,6 +297,7 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try{
         
         String name = farmerNameTextField.getText();
         String remarks = remarksTextArea.getText();
@@ -334,26 +326,7 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
                 break;
             }
         }
-////        Organization org = null;
-//        for(Network network : business.getNetworkList())
-//        {
-//            for(Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList())
-//            {    if(enterprise.getEnterpriseType().getValue()=="Feedback Management Enterprise"){
-//               for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList())
-//               {
-//                    if (organization instanceof AdminOrganization)
-//                    {
-//                        org = organization;
-//                       // org.getMarketWorkQueue().getMarkerWorkRequestList().add(marketWorkRequest);
-//                       // org.getFeedbackWorkQueue().getFarmerFeedbackList().add(request);
-//                            //break;
-//                        //Adding in all markets of all networks    
-//                    }
-//                }
-//            }
-//            }
-//        }
-        
+
         if (org!=null){
             org.getFeedbackWorkQueue().getFarmerFeedbackList().add(request);
             JOptionPane.showMessageDialog(null, "Feedback Submitted Successfully! We'll Work On It");
@@ -366,7 +339,11 @@ public class FarmerFeedbackJPanel extends javax.swing.JPanel {
         remarksTextArea.setText("");
         userFriendlyDropdown.setSelectedIndex(0);
         
+        }
         
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void satisfiedRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_satisfiedRadioActionPerformed

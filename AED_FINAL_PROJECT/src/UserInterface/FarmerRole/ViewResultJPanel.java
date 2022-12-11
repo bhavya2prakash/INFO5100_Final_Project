@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Lenovo
+ * @author Bhavya Prakash
  */
 public class ViewResultJPanel extends javax.swing.JPanel {
 
@@ -31,36 +31,22 @@ public class ViewResultJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private CropTestResultQueue request;
-    private Image image2;
+    
     
 
     public ViewResultJPanel(JPanel userProcessContainer, CropTestResultQueue request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.request = request;
-        backgroundImage("/resources/imgs/HP2.jpg");
-        populateDetails();
+              populateDetails();
     }
     
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
 
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
 
     public void populateDetails()
     {
+        try{
       researchResultTextField.setText(request.getMessage());
       cropTxtFld.setText(request.getPlannedCropType());
       String resolveDate = String.valueOf(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(request.getResolveDate()));
@@ -100,7 +86,11 @@ public class ViewResultJPanel extends javax.swing.JPanel {
      carbonNitrogenlRemarkTxtFld1.setText(request.getCrop().getSoilParameter().getRemarksCarbonNitrogenRatio());
      aluminiumlRemarkTxtFld3.setText(request.getCrop().getSoilParameter().getRemarksAluminiumSaturation());
      calciumCarbRemarkTxtFld4.setText(request.getCrop().getSoilParameter().getRemarksCalciumCarbonateContent());
+        }
         
+        catch (Exception e){
+            
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -158,6 +148,8 @@ public class ViewResultJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         resolveDateTextField = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         actualBlkTxtFld.setEnabled(false);
 
@@ -358,24 +350,24 @@ public class ViewResultJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(262, 262, 262)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addGap(28, 28, 28)
-                                .addComponent(cropTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(cropTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(328, 328, 328)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel7)
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cropTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))

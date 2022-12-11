@@ -26,7 +26,7 @@ public class LogoutScreen extends javax.swing.JPanel {
     public LogoutScreen() {
         initComponents();
         
-        backgroundImage("/resources/imgs/HP2.jpg");
+        backgroundImage("/Images/Agronomy_Mainframe.png");
     }
     private void backgroundImage(String str){
         try {
@@ -59,7 +59,7 @@ public class LogoutScreen extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGap(0, 898, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -37,7 +37,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
- * @author Lenovo
+ * @author Utkar
  */
 public class ReportsJPanel extends javax.swing.JPanel {
 
@@ -52,24 +52,8 @@ public class ReportsJPanel extends javax.swing.JPanel {
        initComponents();
        this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
-        backgroundImage("/resources/imgs/HP2.jpg");
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,10 +75,12 @@ public class ReportsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("ENTERPRISE REPORT ANALYSIS AND MANAGEMENT");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Farmer Feedbacks Analysis");
@@ -156,7 +142,7 @@ public class ReportsJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel7)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -179,7 +165,7 @@ public class ReportsJPanel extends javax.swing.JPanel {
                         .addGap(236, 236, 236)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(478, 478, 478)
+                        .addGap(27, 27, 27)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -203,14 +189,16 @@ public class ReportsJPanel extends javax.swing.JPanel {
                     .addComponent(deptOpenRequestBtn))
                 .addGap(27, 27, 27)
                 .addComponent(appEasyReportBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(backBtn)
-                .addGap(52, 52, 52))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void ReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportActionPerformed
         // TODO add your handling code here:
+        try{
+        
         int countBad=0;
         int countGood=0;
         int countExcellent=0;
@@ -247,11 +235,17 @@ public class ReportsJPanel extends javax.swing.JPanel {
         ChartFrame frame = new ChartFrame("Overall Application Rating", chart);
         frame.setVisible(true);
         frame.setSize(500, 500);
-
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_ReportActionPerformed
 
     private void resultSatisfactionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultSatisfactionBtnActionPerformed
         // TODO add your handling code here:
+        
+        try{
         int notSatisfied=0;
         int somewhatSatisfied=0;
         int verySatisfied=0;
@@ -290,10 +284,18 @@ public class ReportsJPanel extends javax.swing.JPanel {
         ChartFrame frame = new ChartFrame("Result Satisfaction", chart);
         frame.setVisible(true);
         frame.setSize(700, 500);
+        
+        }
+        
+        catch(Exception e){
+            
+        }
     }//GEN-LAST:event_resultSatisfactionBtnActionPerformed
 
     private void appEasyReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appEasyReportBtnActionPerformed
         // TODO add your handling code here:
+        
+        try{
         int countEasy=0;
         int countSomewhat=0;
         int countVery=0;
@@ -330,11 +332,19 @@ public class ReportsJPanel extends javax.swing.JPanel {
         ChartFrame frame = new ChartFrame("Application Easiness Level", chart);
         frame.setVisible(true);
         frame.setSize(500, 500);
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_appEasyReportBtnActionPerformed
 
     private void ApplicationUsageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApplicationUsageBtnActionPerformed
         // TODO add your handling code here:
-        int countResearch=0;
+        try{
+            int countResearch=0;
+        
         int countSale=0;
         int countBoth=0;
         
@@ -381,11 +391,17 @@ public class ReportsJPanel extends javax.swing.JPanel {
         ChartFrame frame = new ChartFrame("Application Usage Study", chart);
         frame.setVisible(true);
         frame.setSize(500, 500);
+        }
         
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_ApplicationUsageBtnActionPerformed
 
     private void deptOpenRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptOpenRequestBtnActionPerformed
         // TODO add your handling code here:
+        try{
+        
         int countCollection=0;
         int countLab=0;
         int countResearch=0;
@@ -430,6 +446,11 @@ public class ReportsJPanel extends javax.swing.JPanel {
         ChartFrame frame = new ChartFrame("Department Specific Pending Task", chart);
         frame.setVisible(true);
         frame.setSize(500, 500);
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_deptOpenRequestBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

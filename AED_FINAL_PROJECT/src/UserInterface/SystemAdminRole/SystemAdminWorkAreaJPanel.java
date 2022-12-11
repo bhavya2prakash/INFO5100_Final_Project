@@ -26,7 +26,7 @@ import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
- * @author kkgarg
+ * @author Bhavya Prakash
  */
 public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -41,65 +41,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        //populateTree();
-        backgroundImage("/resources/imgs/HP2.jpg");
-    }
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(SystemAdminWorkAreaJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
-    
-    public void populateTree(){
-//        DefaultTreeModel model = (DefaultTreeModel) ecoSystemJTree.getModel();
-//        
-//        ArrayList<Network> networkList = system.getNetworkList();
-//        ArrayList<Enterprise> enterpriseList;
-//        ArrayList<Organization> organizationList;
-//        
-//        Network network;
-//        Enterprise enterprise;
-//        Organization organization;
-//        
-//        DefaultMutableTreeNode networks = new DefaultMutableTreeNode("networks");
-//        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-//        root.removeAllChildren();
-//        root.insert(networks, 0);
-//        
-//        DefaultMutableTreeNode networkNode;
-//        DefaultMutableTreeNode enterpriseNode;
-//        DefaultMutableTreeNode organizationNode;
-//        
-//        for(int i = 0; i < networkList.size(); i++){
-//            network = networkList.get(i);
-//            networkNode = new DefaultMutableTreeNode(network.getName());
-//            networks.insert(networkNode, i);
-//            
-//            enterpriseList = network.getEnterpriseDirectory().getEnterpriseList();
-//            for(int j = 0; j < enterpriseList.size(); j++){
-//                enterprise = enterpriseList.get(j);
-//                enterpriseNode = new DefaultMutableTreeNode(enterprise.getName());
-//                networkNode.insert(enterpriseNode, j);
-//                
-//                organizationList = enterprise.getOrganizationDirectory().getOrganizationList();
-//                for(int k = 0; k < organizationList.size(); k++){
-//                    organization = enterpriseList.get(k);
-//                    organizationNode = new DefaultMutableTreeNode(organization.getName());
-//                    enterpriseNode.insert(organizationNode, k);
-//                }
-//            }
-//        }
-//        model.reload();
+        
     }
 
     /**
@@ -116,7 +58,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEnterpriseAdminButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        manageNetworkButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        setBackground(new java.awt.Color(238, 231, 219));
+
+        manageNetworkButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageNetworkButton.setText("Manage Network");
         manageNetworkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +68,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageEnterpriseButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        manageEnterpriseButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageEnterpriseButton.setText("Manage Enterprise");
         manageEnterpriseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +76,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageEnterpriseAdminButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        manageEnterpriseAdminButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageEnterpriseAdminButton.setText("Manage Enterprise Admin");
         manageEnterpriseAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +84,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -153,7 +97,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(manageEnterpriseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(manageNetworkButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1180, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

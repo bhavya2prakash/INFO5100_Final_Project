@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Lenovo
+ * @author Supriya Tripathi
  */
 public class LabWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -45,28 +45,14 @@ public class LabWorkAreaJPanel extends javax.swing.JPanel {
         this.labOrganization = labOrganization;
         this.enterprise = enterprise;
         this.userAccount = account;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateTable();
         
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
-    
+   
     public void populateTable(){
+       try{
+        
         DefaultTableModel model = (DefaultTableModel)labJTable.getModel();
         
         model.setRowCount(0);
@@ -81,6 +67,12 @@ public class LabWorkAreaJPanel extends javax.swing.JPanel {
             
             model.addRow(row);
         }
+        
+       }
+       
+       catch (Exception e){
+           
+       }
     }
 
     /**
@@ -116,6 +108,8 @@ public class LabWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         messageTextArea = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Lab Request Table");
@@ -324,6 +318,8 @@ public class LabWorkAreaJPanel extends javax.swing.JPanel {
 
     private void labAssignToMeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labAssignToMeBtnActionPerformed
         // TODO add your handling code here:
+        try{
+        
         int selectedRow = labJTable.getSelectedRow();
 
         if (selectedRow < 0){
@@ -340,6 +336,12 @@ public class LabWorkAreaJPanel extends javax.swing.JPanel {
         }
         else{
         JOptionPane.showMessageDialog(null, "Request already assigned");
+        }
+        
+        }
+        
+        catch (Exception e){
+            
         }
     }//GEN-LAST:event_labAssignToMeBtnActionPerformed
 
