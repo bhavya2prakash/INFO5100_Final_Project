@@ -32,7 +32,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Lenovo
+ * @author Bhavya Prakash
  */
 public class ViewOrderDetails extends javax.swing.JPanel {
 
@@ -43,35 +43,21 @@ public class ViewOrderDetails extends javax.swing.JPanel {
     private UserAccount userAccount;
     private MarketWorkRequest request;
     private EcoSystem business;
-    private Image image2;
+   
     ViewOrderDetails(JPanel userProcessContainer, UserAccount userAccount, MarketWorkRequest request,EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.business=business;
         this.userAccount = userAccount;
         this.request = request;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateOrderTable();
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
     
     public void populateOrderTable(){
-        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+       try{
+           DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+       
         model.setRowCount(0);
         
         for(MarketOrder order : request.getMarketOrderDirectory().getMarketOrderList()){
@@ -85,6 +71,11 @@ public class ViewOrderDetails extends javax.swing.JPanel {
             row[4] = order.getStatus();
             model.addRow(row);
         }
+       }
+       
+       catch (Exception e){
+           
+       }
     }
 
     /**
@@ -120,6 +111,8 @@ public class ViewOrderDetails extends javax.swing.JPanel {
         viewOrderBtn = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         requestDeliveryBtn = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -199,7 +192,8 @@ public class ViewOrderDetails extends javax.swing.JPanel {
             }
         });
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel16.setBackground(new java.awt.Color(238, 231, 219));
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         requestDeliveryBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         requestDeliveryBtn.setText("Request Delivery ");
@@ -342,6 +336,8 @@ public class ViewOrderDetails extends javax.swing.JPanel {
 
     private void viewOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOrderBtnActionPerformed
         // TODO add your handling code here:
+        
+        try{
         int selectedRow = orderTable.getSelectedRow();
         
         if (selectedRow < 0){
@@ -360,15 +356,18 @@ public class ViewOrderDetails extends javax.swing.JPanel {
         orderQuantityTextField.setText(String.valueOf(order.getOrderQuantity()));
         vendorRemarksTextArea.setText(order.getBuyerRemarks());
         
+        }
         
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_viewOrderBtnActionPerformed
 
     private void requestDeliveryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestDeliveryBtnActionPerformed
-        // TODO add your handling code here:
-     
-            //String farmerName  = farmerNamejTextField.getText();
-           // String question = questionJTextArea.getText();
-            
+       
+          try{
+              
+          
         int selectedRow = orderTable.getSelectedRow();
         
         if (selectedRow < 0){
@@ -392,12 +391,6 @@ public class ViewOrderDetails extends javax.swing.JPanel {
             
             Organization org = null;
 
-//            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
-//            if (organization instanceof ResearchOrganization){
-//                org = organization;
-//                break;
-//            }
-//        }
             for (Network n : business.getNetworkList()){
                 for(Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()){
                     for(Organization o : e.getOrganizationDirectory().getOrganizationList()){
@@ -417,7 +410,13 @@ public class ViewOrderDetails extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Requested Successfully");
             }
             
-        populateOrderTable();    
+        populateOrderTable();   
+        
+          }
+          
+          catch(Exception e){
+              
+          }
     }//GEN-LAST:event_requestDeliveryBtnActionPerformed
 
 

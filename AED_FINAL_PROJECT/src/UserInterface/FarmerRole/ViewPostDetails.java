@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author kkgarg
+ * @author Supriya Tripathi
  */
 public class ViewPostDetails extends javax.swing.JPanel {
 
@@ -49,20 +49,7 @@ public class ViewPostDetails extends javax.swing.JPanel {
         datePostedjTextField.setText(String.valueOf(request.getDateRequested()));
         statusTxtField.setText(request.getStatus());
         
-//        if(request.getReceiver() != null)
-//        {
-//            VendorNameTxtField.setText(String.valueOf(request.getReceiver()));
-//            vendorAddL1TextField.setText(request.getReceiverAddressLine1());
-//            vendorAddLine2TextField.setText(request.getReceiverAddressLine2());
-//            vendorZipcodeJTextField.setText(String.valueOf(request.getReceiverZipcode()));
-//            vendorContactJTextField.setText(String.valueOf(request.getReceiverContactInfo()));
-//            dateRespondedJTextField.setText(String.valueOf(request.getDateResolved()));
-//            vendorRemarksTextArea.setText(request.getVendorRemarks());
-//        }
-//        else
-//        {
-//            JOptionPane.showMessageDialog(null, "Please note!!No Vendor has responded yet");
-//        }
+
     }
 
     
@@ -120,6 +107,8 @@ public class ViewPostDetails extends javax.swing.JPanel {
         jLabel19 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         vendorRemarksTextArea = new javax.swing.JTextArea();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         jLabel8.setText("Address Line2:");
 
@@ -276,8 +265,7 @@ public class ViewPostDetails extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
@@ -317,7 +305,7 @@ public class ViewPostDetails extends javax.swing.JPanel {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
+                        .addGap(65, 65, 65)
                         .addComponent(jButton1)))
                 .addGap(83, 83, 83))
         );

@@ -27,7 +27,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author kkgarg
+ * @author Utkar
  */
 public class AboutUsJPanel extends javax.swing.JPanel {
 
@@ -50,28 +50,12 @@ public class AboutUsJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         this.business = business;
         this.setSize(1200, 800);
-        backgroundImage("/resources/imgs/HP2.jpg");
         settingText();
-        //try1();
+        
     }
-    private void backgroundImage(String str)
-    {
-        try {
-            image1 = ImageIO.read(AboutUsJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        }
-        catch (IOException ex) 
-            {
-                Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }
+   
 
-        public void paintComponent(Graphics g) 
-        {
-            super.paintComponent(g);
-            // Draw the background image.
-            g.drawImage(image2, 0, 0, this);
-        }
+       
         
         public void try1()
         {
@@ -135,11 +119,12 @@ public class AboutUsJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ABOUT US");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         jLabel2.setMaximumSize(new java.awt.Dimension(1200, 1000));
         jLabel2.setMinimumSize(new java.awt.Dimension(1200, 900));
 
+        backBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backBtn.setText("<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,26 +139,23 @@ public class AboutUsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(backBtn)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(348, 348, 348))))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backBtn)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(350, 350, 350)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, Short.MAX_VALUE)
                 .addGap(18, 18, 18)

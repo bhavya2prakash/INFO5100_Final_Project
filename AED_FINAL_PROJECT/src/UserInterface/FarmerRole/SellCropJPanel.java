@@ -32,7 +32,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kkgarg
+ * @author Utkar
  */
 public class SellCropJPanel extends javax.swing.JPanel {
 
@@ -44,7 +44,7 @@ public class SellCropJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private ImageIcon imgFinal;
     private EcoSystem business;
-    private Image image2;
+
     
     public SellCropJPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, EcoSystem business) 
     {
@@ -53,29 +53,15 @@ public class SellCropJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = business;
-        backgroundImage("/resources/imgs/HP2.jpg");
         farmerNamejTextField.setText(userAccount.getFarmer().getFarmerName());
         populateMarketSellTable();
         
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
+  
 
     public void populateMarketSellTable(){
+       try{
         DefaultTableModel model = (DefaultTableModel) sellCropJTable.getModel();
         
         model.setRowCount(0);
@@ -85,11 +71,15 @@ public class SellCropJPanel extends javax.swing.JPanel {
             row[1] = request.getCropName();
             row[2] = request.getQuantity();
             row[3] = request.getRatePerKg();
-  //          String status = request.getStatus();
             row[4] = request.getStatus() == null ? "Open" : request.getStatus();
             
             model.addRow(row);
         }
+       }
+       
+       catch (Exception e){
+           
+       }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,6 +120,7 @@ public class SellCropJPanel extends javax.swing.JPanel {
         cropImageJLabel = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(238, 231, 219));
         setEnabled(false);
 
         sellCropJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -219,7 +210,7 @@ public class SellCropJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -230,51 +221,44 @@ public class SellCropJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 1327, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(174, 174, 174)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(97, 97, 97)
+                                        .addComponent(qtyTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ratePerKgTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cropNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(farmerNamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(100, 100, 100)))
+                            .addGap(28, 28, 28)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(174, 174, 174)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(97, 97, 97)
-                                                .addComponent(qtyTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ratePerKgTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cropNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(farmerNamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(100, 100, 100)))
-                                    .addGap(28, 28, 28)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel8)
-                                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(senderAddLine2TextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(senderAddL1TextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(senderZipcodeJTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(senderContactJTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(69, 69, 69))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(114, 114, 114)))
-                            .addGap(94, 94, 94)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(senderAddLine2TextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(senderAddL1TextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(senderZipcodeJTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(senderContactJTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(163, 163, 163)
                             .addComponent(cropImageJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(77, 77, 77)
@@ -292,7 +276,10 @@ public class SellCropJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(viewJButton))))))
+                                    .addComponent(viewJButton)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(443, 443, 443)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -305,9 +292,9 @@ public class SellCropJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewJButton))
-                .addGap(15, 15, 15)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
@@ -363,45 +350,7 @@ public class SellCropJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void uploadImageJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadImageJButtonActionPerformed
-        // TODO add your handling code here:
-//        try{
-//                
-//       JFileChooser chooser=new JFileChooser();
-//       chooser.showOpenDialog(null);
-//       File f=chooser.getSelectedFile();
-//       
-//       Image image=ImageIO.read(f);
-//       
-//       String fileName=f.getAbsolutePath();
-//       
-//       if (fileName.endsWith(".jpg") || fileName.endsWith("jpeg"))
-//       {
-////       imagePathTextField.setText(fileName);
-//           //Image picture1 = resume_image.getImage();
-//         //Image picture2 = picture1.getScaledInstance(createPicture.getWidth(),createPicture.getHeight(),Image.SCALE_SMOOTH);
-//         //Image picture2 = picture1.getScaledInstance(200,200,Image.SCALE_SMOOTH);
-//         //ImageIcon picture3 = new ImageIcon(picture2.);
-//        //ImageIcon picture2 = new ImageIcon(picture1);
-//       ImageIcon icon=new ImageIcon(fileName);
-//       cropImageJLabel.setIcon(new ImageIcon(image.getScaledInstance(154,127,150)));
-//       cropImage = new ImageIcon(image.getScaledInstance(154,127,150));
-//       }
-//       
-//       else
-//       {
-//            getToolkit().beep();
-//            
-//            JOptionPane.showMessageDialog(null, "Please select jpg or jpeg images only");
-//            
-//            
-//       }
-//       
-//     }
-//       
-//       catch(Exception e){
-//       }
         
-
         JFileChooser chooser=new JFileChooser();
        chooser.showOpenDialog(null);
        File image=chooser.getSelectedFile();
@@ -410,8 +359,6 @@ public class SellCropJPanel extends javax.swing.JPanel {
        Image img=imgIcon.getImage();
        Image pic=img.getScaledInstance(cropImageJLabel.getWidth(), cropImageJLabel.getHeight(), SCALE_SMOOTH);
         imgFinal=new ImageIcon(pic);
-       //picTxtFld.setText(fName);
-       //request.setImgIcon(imgFinal);
        cropImageJLabel.setIcon(imgFinal);
         
     }//GEN-LAST:event_uploadImageJButtonActionPerformed
@@ -419,11 +366,7 @@ public class SellCropJPanel extends javax.swing.JPanel {
     private void postJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postJButtonActionPerformed
         // TODO add your handling code here:
         try{
-//        String farmerName  = farmerNamejTextField.getText();
-//        if(farmerName.length()==0){
-//            JOptionPane.showMessageDialog(null, "Please Enter farmer's Name");
-//            return;
-//        }
+
         String cropName = cropNameJTextField.getText();
         if(cropName.length()==0){
             JOptionPane.showMessageDialog(null, "Please Enter Crop's Name");
@@ -468,8 +411,7 @@ public class SellCropJPanel extends javax.swing.JPanel {
                     {
                         org = organization;
                         org.getMarketWorkQueue().getMarkerWorkRequestList().add(marketWorkRequest);
-                            //break;
-                        //Adding in all markets of all networks    
+                             
                     }
                 } 
             }
@@ -504,6 +446,8 @@ public class SellCropJPanel extends javax.swing.JPanel {
 
     private void viewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewJButtonActionPerformed
         // TODO add your handling code here:
+        
+        try{
         int selectedRow = sellCropJTable.getSelectedRow();
        
        if (selectedRow < 0){
@@ -522,6 +466,11 @@ public class SellCropJPanel extends javax.swing.JPanel {
            JOptionPane.showMessageDialog(null, "No Vendor Has Responded Yet");
        }
         
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_viewJButtonActionPerformed
 
 
