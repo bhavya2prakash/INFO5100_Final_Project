@@ -52,7 +52,7 @@
     <Component class="javax.swing.JButton" name="manageNetworkButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="16" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Network"/>
       </Properties>
@@ -63,7 +63,7 @@
     <Component class="javax.swing.JButton" name="manageEnterpriseButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="16" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Enterprise"/>
       </Properties>
@@ -74,7 +74,7 @@
     <Component class="javax.swing.JButton" name="manageEnterpriseAdminButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="16" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Enterprise Admin"/>
       </Properties>

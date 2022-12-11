@@ -40,7 +40,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         this.setSize(1350,700);
         system = dB4OUtil.retrieveSystem();
-        backgroundImage("/resources/imgs/HP2.jpg");
+        backgroundImage("/Images/Agronomy_Mainframe.png");
         layout1 = (CardLayout) userProcessContainer.getLayout();
         
     }

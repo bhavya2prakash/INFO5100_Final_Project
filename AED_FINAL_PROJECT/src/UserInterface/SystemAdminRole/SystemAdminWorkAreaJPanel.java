@@ -42,7 +42,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         //populateTree();
-        //backgroundImage("/resources/imgs/HP2.jpg");
+        //backgroundImage("/Images/Agronomy_Mainframe.png");
     }
 //    private void backgroundImage(String str){
 //        try {
@@ -118,7 +118,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(238, 231, 219));
 
-        manageNetworkButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        manageNetworkButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageNetworkButton.setText("Manage Network");
         manageNetworkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +126,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageEnterpriseButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        manageEnterpriseButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageEnterpriseButton.setText("Manage Enterprise");
         manageEnterpriseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +134,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageEnterpriseAdminButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        manageEnterpriseAdminButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageEnterpriseAdminButton.setText("Manage Enterprise Admin");
         manageEnterpriseAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
