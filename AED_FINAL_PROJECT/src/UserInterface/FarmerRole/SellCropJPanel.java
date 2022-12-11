@@ -384,6 +384,11 @@ public class SellCropJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please Enter Line 2");
             return;
         }
+        if(imgFinal==null){
+             JOptionPane.showMessageDialog(null, "Please upload a picture of the crop");
+            return;
+            
+        }
         int senderZipcode = Integer.parseInt(senderZipcodeJTextField.getText());
         long contactNo = Long.parseLong(senderContactJTextField.getText());
         String cropDesc = cropDescJTextArea.getText();
