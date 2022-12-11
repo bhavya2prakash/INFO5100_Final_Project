@@ -26,7 +26,7 @@ public class LogoutScreen extends javax.swing.JPanel {
     public LogoutScreen() {
         initComponents();
         
-        //backgroundImage("/resources/imgs/HP2.jpg");
+        backgroundImage("/Images/Agronomy_Mainframe.png");
     }
     private void backgroundImage(String str){
         try {

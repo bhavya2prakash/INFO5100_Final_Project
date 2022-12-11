@@ -140,6 +140,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(238, 231, 219));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         setLayout(null);
 
         backBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -150,7 +151,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(backBtn);
-        backBtn.setBounds(590, 420, 90, 31);
+        backBtn.setBounds(30, 590, 90, 31);
         add(farmerNameTextField);
         farmerNameTextField.setBounds(210, 230, 310, 30);
         add(userNameTextField);
