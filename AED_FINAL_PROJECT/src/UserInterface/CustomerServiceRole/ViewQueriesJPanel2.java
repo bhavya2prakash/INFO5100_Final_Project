@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kkgarg
+ * @author Bhavya Prakash
  */
 public class ViewQueriesJPanel2 extends javax.swing.JPanel {
 
@@ -35,7 +35,6 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
     CustomerServiceOrganization customerServiceOrganization;
     private Enterprise enterprise;
     private UserAccount userAccount;
-    private Image image2;
     
     public ViewQueriesJPanel2(JPanel userProcessContainer, UserAccount account, CustomerServiceOrganization customerServiceOrganization, Enterprise enterprise) {
         initComponents();
@@ -43,30 +42,17 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
         this.customerServiceOrganization = customerServiceOrganization;
         this.enterprise = enterprise;
         this.userAccount = account;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateViewQueryTable();
         jButton1.setVisible(false);
         
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ViewQueriesJPanel2.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
 
     public void populateViewQueryTable(){
-        DefaultTableModel model = (DefaultTableModel) viewQueriesJTable.getModel();
+        
+        try{
+            DefaultTableModel model = (DefaultTableModel) viewQueriesJTable.getModel();
+        
         
         model.setRowCount(0);
         for (QueryWorkRequest request : customerServiceOrganization.getQueryWorkQueue().getQueryWorkRequestList()){
@@ -77,6 +63,13 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
             row[3] = request.getStatus();
             model.addRow(row);
         }
+        
+        }
+        
+        
+       catch (Exception e){
+           
+       }
     }
     
     
@@ -104,6 +97,8 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         viewQueriesJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,7 +158,7 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
         farmerNamejTextField.setBackground(new java.awt.Color(204, 204, 255));
         farmerNamejTextField.setEnabled(false);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("<<Back");
@@ -181,23 +176,17 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 1327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(271, 271, 271)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(114, 114, 114)
-                                .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(viewDetailsJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(0, 32, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114)
+                        .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(viewDetailsJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 460, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(340, 340, 340)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,6 +199,7 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                     .addComponent(jScrollPane3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,7 +238,7 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
         // TODO add your handling code here:
-       
+       try{
             int selectedRow = viewQueriesJTable.getSelectedRow();
 
             if (selectedRow < 0){
@@ -276,12 +266,20 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Query response submitted");
             farmerNamejTextField.setText("");
             questionJTextArea.setText("");
-            responseJTextArea.setText("");        
+            responseJTextArea.setText("");     
+            
+       }
+       
+       catch (Exception e){
+           
+       }
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void viewDetailsJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsJBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRow = viewQueriesJTable.getSelectedRow();
+        try{
+            int selectedRow = viewQueriesJTable.getSelectedRow();
+        
 
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, "Please Select a  Row");
@@ -292,7 +290,11 @@ public class ViewQueriesJPanel2 extends javax.swing.JPanel {
         questionJTextArea.setText(request.getQuestion());
         responseJTextArea.setText(request.getResponse());
         farmerNamejTextField.setText(String.valueOf(request.getSender()));
+        }
         
+        catch (Exception e){
+            
+        }
 
     }//GEN-LAST:event_viewDetailsJBtnActionPerformed
 

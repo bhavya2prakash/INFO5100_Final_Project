@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author kkgarg
+ * @author Utkar
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -37,33 +37,24 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         valueLabel.setText(enterprise.getName());
         checkAdminType();
-        //backgroundImage("/resources/imgs/HP2.jpg");
+      
     }
-    
-//    private void backgroundImage(String str){
-//        try {
-//            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-//            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-//        } catch (IOException ex) {
-//            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
 
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
-
+    
     public void checkAdminType(){
-       if((enterprise.getEnterpriseType().getValue().equals("Crop Research Enterprise"))){
+       try{
+           if((enterprise.getEnterpriseType().getValue().equals("Crop Research Enterprise"))){
            feedbackBtn.setVisible(true);
            reportsBtn.setVisible(true);
        }
        else{
             feedbackBtn.setVisible(false);
            reportsBtn.setVisible(false);
+           
+       }
+       }
+       
+       catch (Exception e){
            
        }
    }
@@ -91,12 +82,12 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Adminstrative Work Area");
 
-        enterpriseLabel.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
-        enterpriseLabel.setText("EnterPrise :");
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        enterpriseLabel.setText("Enterprise:");
 
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
 
-        manageOrganizationBtn.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        manageOrganizationBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageOrganizationBtn.setText("Manage Organization");
         manageOrganizationBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +95,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageEmployeeBtn.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        manageEmployeeBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageEmployeeBtn.setText("Manage Employee");
         manageEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +103,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageUserBtn.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        manageUserBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageUserBtn.setText("Manage User");
         manageUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +111,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        feedbackBtn.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        feedbackBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         feedbackBtn.setText("View Feedbacks");
         feedbackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,9 +119,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
-        reportsBtn.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        reportsBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         reportsBtn.setText("Reports");
         reportsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,12 +181,20 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageOrganizationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationBtnActionPerformed
         // TODO add your handling code here:
-        //Enterprise.EnterpriseType type = enterprise.getEnterpriseType();
+        try{
+            
+        
         String value = enterprise.getEnterpriseType().getValue();
         ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, enterprise.getOrganizationDirectory(),value);
         userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_manageOrganizationBtnActionPerformed
 
     private void manageEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeBtnActionPerformed

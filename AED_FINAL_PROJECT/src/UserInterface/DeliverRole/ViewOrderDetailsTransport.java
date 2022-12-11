@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Lenovo
+ * @author Utkar
  */
 public class ViewOrderDetailsTransport extends javax.swing.JPanel {
 
@@ -36,7 +36,6 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private UserAccount userAccount;
     private Organization org;
-//    private MarketWorkRequest request;
     private Image image2;
     public ViewOrderDetailsTransport(JPanel userProcessContainer, UserAccount account, DeliveryOrganization organization, Enterprise enterprise) {
         initComponents();
@@ -44,30 +43,13 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
         System.out.print(organization.getName()+" "+enterprise.getName());
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
-//        this.request = request;
-        backgroundImage("/resources/imgs/HP2.jpg");
-//        populateOrderTable();
          populateTable();
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
-    
+   
      public void populateTable(){
-        DefaultTableModel model = (DefaultTableModel) deliveryRequestTable.getModel();
+        try{
+         DefaultTableModel model = (DefaultTableModel) deliveryRequestTable.getModel();
         
         model.setRowCount(0);
         for (WorkRequest request : org.getWorkQueue().getWorkRequestList()){
@@ -80,23 +62,15 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
             row[5] = request.getStatus();
             model.addRow(row);
         }
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }
     
-//    public void populateOrderTable(){
-//        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
-//        model.setRowCount(0);
-//        
-//        for(MarketOrder order : request.getMarketOrderDirectory().getMarketOrderList()){
-//            Object[] row = new Object[4];
-//            row[0] = order;
-//            row[1] = order.getOrderQuantity();
-//            Date date = order.getDateOrdered();
-//            String dateString = String.valueOf(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date));
-//            row[2] = dateString;
-//            row[3] = order.getBuyerContactInfo();
-//            model.addRow(row);
-//        }
-//    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -114,6 +88,8 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
         assignWorkRequestBtn = new javax.swing.JButton();
         processWorkRequestBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         deliveryRequestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -124,7 +100,7 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(deliveryRequestTable);
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         completeWorkRequestBtn.setText("Completed");
         completeWorkRequestBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +159,8 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
 
     private void assignWorkRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignWorkRequestBtnActionPerformed
         // TODO add your handling code here:
+        try{
+        
         int selectedRow = deliveryRequestTable.getSelectedRow();
 
         if (selectedRow < 0){
@@ -200,10 +178,17 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
         else{
         JOptionPane.showMessageDialog(null, "Request already assigned");
         }
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_assignWorkRequestBtnActionPerformed
 
     private void processWorkRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processWorkRequestBtnActionPerformed
         // TODO add your handling code here:
+        
+        try{
         int selectedRow = deliveryRequestTable.getSelectedRow();
 
         if (selectedRow < 0){
@@ -214,18 +199,26 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
         WorkRequest request = (WorkRequest)deliveryRequestTable.getValueAt(selectedRow, 0);
         if(request.getStatus().equals("Picked Up")&& request.getReceiver()==userAccount)
         {
-//            request.setReceiver(userAccount);
             request.setStatus("On the Way");
             populateTable();
         }
         else{
         JOptionPane.showMessageDialog(null, "Request already assigned");
         }
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_processWorkRequestBtnActionPerformed
 
     private void completeWorkRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeWorkRequestBtnActionPerformed
         // TODO add your handling code here:
-         int selectedRow = deliveryRequestTable.getSelectedRow();
+         
+        try{
+            
+        
+        int selectedRow = deliveryRequestTable.getSelectedRow();
 
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, "Please Select a  Row");
@@ -242,6 +235,11 @@ public class ViewOrderDetailsTransport extends javax.swing.JPanel {
         }
         else{
         JOptionPane.showMessageDialog(null, "Request already assigned");
+        }
+        }
+        
+        catch (Exception e){
+            
         }
     }//GEN-LAST:event_completeWorkRequestBtnActionPerformed
 
