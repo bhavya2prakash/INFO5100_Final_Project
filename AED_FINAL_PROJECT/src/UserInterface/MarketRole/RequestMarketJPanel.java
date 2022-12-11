@@ -276,13 +276,13 @@ public class RequestMarketJPanel extends javax.swing.JPanel {
             order.setDateOrdered(new Date());
             
             request.setQuantity(request.getQuantity()-quantity);
-            
+             JOptionPane.showMessageDialog(null, "Order Submitted! Farmer Is Notified");
             //Work
             if(request.getQuantity()==0){
                 request.setStatus("Completed");
                 }
             }
-            JOptionPane.showMessageDialog(null, "Order Submitted! Farmer Is Notified");
+           // JOptionPane.showMessageDialog(null, "Order Submitted! Farmer Is Notified");
             vendorNameTxtField.setText("");
             vendorAddL1TextField.setText("");
             vendorAddLine2TextField.setText("");
