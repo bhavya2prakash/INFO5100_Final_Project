@@ -46,7 +46,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Lenovo
+ * @author Supriya Tripathi
  */
 public class SignUpJPanel extends javax.swing.JPanel {
 
@@ -253,8 +253,9 @@ public class SignUpJPanel extends javax.swing.JPanel {
             String username = userNameTextField.getText();
             String password = passwordTextField.getText();
             String name = farmerNameTextField.getText();
+            String email = farmerNameTextField1.getText();
 
-            if(userNameTextField.getText().length()==0 || passwordTextField.getText().length()==0 || farmerNameTextField.getText().length()==0){
+            if(userNameTextField.getText().length()==0 || passwordTextField.getText().length()==0 || farmerNameTextField.getText().length()==0 ||farmerNameTextField1.getText().length()==0){
                 JOptionPane.showMessageDialog(null, "Please Enter all the Fields");
                 return;
             }
@@ -264,6 +265,11 @@ public class SignUpJPanel extends javax.swing.JPanel {
                 passwordValidationJLabel.setText("Password must be 8 charaters with 1 alphabet & 1 digit");
                 return;
 
+            }
+            if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", farmerNameTextField1.getText())) ){
+               JOptionPane.showMessageDialog(null, "Please enter a valid email address");
+               
+                return; 
             }
 
             farmerNameTextField.setText("");

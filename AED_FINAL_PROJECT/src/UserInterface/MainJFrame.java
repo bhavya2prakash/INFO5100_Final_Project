@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  *
- * @author Lenovo
+ * @author Utkar
  */
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -65,13 +65,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }
     };
     
-//    public void paintComponent(Graphics g) {
-//    super.paintComponent(g);
-//
-//    // Draw the background image.
-//    g.drawImage(image2, 0, 0, this);
-//  }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
