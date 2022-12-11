@@ -28,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kkgarg
+ * @author Bhavya Prakash
  */
 public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
@@ -45,30 +45,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-       // backgroundImage("/resources/imgs/HP2.jpg");
         populateTable();
         populateNetworkComboBox();
     }
-    
-//     private void backgroundImage(String str){
-//        try {
-//            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-//            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-//        } catch (IOException ex) {
-//            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
-
-
-
+ 
     private void populateTable() {
+        try{
+        
         DefaultTableModel model = (DefaultTableModel) enterpriseAdminTable.getModel();
 
         model.setRowCount(0);
@@ -84,21 +67,43 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 }
             }
         }
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }
 
     private void populateNetworkComboBox(){
+       try {
+        
         networkNameComboBox.removeAllItems();
         
         for (Network network : system.getNetworkList()){
             networkNameComboBox.addItem(network);
         }
+        
+       }
+       
+       catch (Exception e){
+           
+       }
     }
     
     private void populateEnterpriseComboBox(Network network){
+        try{
+        
         enterpriseNameComboBox.removeAllItems();
         
         for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
             enterpriseNameComboBox.addItem(enterprise);
+        }
+        
+        }
+        
+        catch (Exception e){
+            
         }
         
     }
@@ -292,14 +297,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
-//        boolean userNameUnqiue = true;
+        
+        try{
+            
+        
         Enterprise enterprise = (Enterprise) enterpriseNameComboBox.getSelectedItem();
         
-        //ADDED CODE STARTS
-        //Organization organization = null;
-        //organization = new AdminOrganization();
-        //enterprise.getOrganizationDirectory().getOrganizationList().add(organization);
-        //ADDED CODE ENDS
+        
         Organization organization = null;
         organization = new AdminOrganization("Enterprise Admin");
         enterprise.getOrganizationDirectory().getOrganizationList().add(organization);
@@ -321,7 +325,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee,null, new AdminRole());
         populateTable();
         clearTextFields();
-
+       
+        }
+        
+        catch(Exception e){
+            
+        }
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -334,9 +343,16 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void networkNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkNameComboBoxActionPerformed
         // TODO add your handling code here:
+        
+        try {
         Network network = (Network) networkNameComboBox.getSelectedItem();
         if (network != null){
             populateEnterpriseComboBox(network);
+        }
+        }
+        
+        catch(Exception e){
+            
         }
     }//GEN-LAST:event_networkNameComboBoxActionPerformed
 

@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Lenovo
+ * @author Utkar
  */
 public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -45,29 +45,16 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
         this.researchOrganization = researchOrganization;
         this.enterprise = enterprise;
         this.userAccount = account;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateTable();
         viewQueriesjButton.setVisible(false);
         
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ResearchWorkAreaJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
     
     public void populateTable(){
+        
+        try{
+           
         DefaultTableModel model = (DefaultTableModel)researchJTable.getModel();
         
         model.setRowCount(0);
@@ -81,6 +68,12 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
             row[3] = request.getStatus();
             
             model.addRow(row);
+        }
+        
+        }
+        
+        catch (Exception e){
+         
         }
     }
 
@@ -118,6 +111,8 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         manageMajorCropInfoJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         researchJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -136,7 +131,7 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(researchJTable);
 
-        researchAssignToMeBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        researchAssignToMeBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         researchAssignToMeBtn.setText("Assign to Me");
         researchAssignToMeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +139,7 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        researchProcessBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        researchProcessBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         researchProcessBtn.setText("Process");
         researchProcessBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,27 +150,27 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Research Request Table");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Planned Crop:");
 
         plannedCropTextField.setEnabled(false);
 
         senderAddL1TextField.setEnabled(false);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Address Line 1:");
 
         farmerNameTextField.setEnabled(false);
 
         senderAddLine2TextField.setEnabled(false);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("AddressLine 2");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Farmer's Name:");
 
-        researchProcessBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        researchProcessBtn1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         researchProcessBtn1.setText("View Request Details");
         researchProcessBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,17 +178,17 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Field Ground Water Level:");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Zip Code:");
 
         senderZipcodeJTextField.setEnabled(false);
 
         farmGroundWaterLevelTxtField.setEnabled(false);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Field Location Temperature Range:");
 
         farmLocationTempTextField.setEnabled(false);
@@ -203,7 +198,7 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewQueriesjButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        viewQueriesjButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewQueriesjButton.setText("View Queries");
         viewQueriesjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,9 +206,9 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/soil research.jpg"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Conduct A New Crop Research");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +216,7 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageMajorCropInfoJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        manageMajorCropInfoJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageMajorCropInfoJButton.setText("Manage Major Crops");
         manageMajorCropInfoJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,6 +228,7 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 1347, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -247,39 +243,39 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(viewQueriesjButton))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 1327, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(farmerNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(senderAddLine2TextField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(senderAddL1TextField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(plannedCropTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(54, 54, 54)
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(farmGroundWaterLevelTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(senderZipcodeJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(farmLocationTempTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(472, 472, 472)
-                        .addComponent(researchProcessBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(235, 235, 235)
-                        .addComponent(researchAssignToMeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(265, 265, 265)
-                        .addComponent(researchProcessBtn1)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(researchAssignToMeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(232, 232, 232)
+                        .addComponent(researchProcessBtn1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(476, 476, 476)
+                        .addComponent(researchProcessBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,27 +312,27 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel8)
                             .addComponent(senderAddLine2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(senderZipcodeJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(farmGroundWaterLevelTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(farmLocationTempTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                            .addComponent(farmLocationTempTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(senderZipcodeJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(researchProcessBtn)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void researchAssignToMeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_researchAssignToMeBtnActionPerformed
         // TODO add your handling code here:
+        
+        try{
         int selectedRow = researchJTable.getSelectedRow();
 
         if (selectedRow < 0){
@@ -356,10 +352,17 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
              JOptionPane.showMessageDialog(null, "Request already assigned");
         }
         
+        }
+        
+        catch (Exception e){
+            
+        }
+        
     }//GEN-LAST:event_researchAssignToMeBtnActionPerformed
 
     private void researchProcessBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_researchProcessBtnActionPerformed
         // TODO add your handling code here:
+        try{
         int selectedRow = researchJTable.getSelectedRow();
 
         if (selectedRow < 0){
@@ -382,10 +385,18 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
         {
           JOptionPane.showMessageDialog(null, "Please assign a valid request");  
         }
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_researchProcessBtnActionPerformed
 
     private void researchProcessBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_researchProcessBtn1ActionPerformed
         // TODO add your handling code here:
+       
+        try{
         int selectedRow = researchJTable.getSelectedRow();
         
         if (selectedRow < 0){
@@ -401,15 +412,27 @@ public class ResearchWorkAreaJPanel extends javax.swing.JPanel {
         senderZipcodeJTextField.setText(String.valueOf(request.getFarmerAddressZip()));
         farmGroundWaterLevelTxtField.setText(String.valueOf(request.getLocationGroundWaterLevel()));
         farmLocationTempTextField.setText(String.valueOf(request.getLocationTemerature()));
-    
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_researchProcessBtn1ActionPerformed
 
     private void viewQueriesjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewQueriesjButtonActionPerformed
         // TODO add your handling code here:
+        try{
+        
         ViewQueriesJPanel viewQueriesJPanel = new ViewQueriesJPanel(userProcessContainer,userAccount,researchOrganization,enterprise);
         userProcessContainer.add("ViewQueriesJPanel", viewQueriesJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_viewQueriesjButtonActionPerformed
 
     private void farmLocationTempTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_farmLocationTempTextFieldActionPerformed

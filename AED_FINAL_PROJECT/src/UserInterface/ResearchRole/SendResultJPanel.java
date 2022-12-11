@@ -30,7 +30,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Lenovo
+ * @author Utkar
  */
 public class SendResultJPanel extends javax.swing.JPanel {
 
@@ -42,7 +42,7 @@ public class SendResultJPanel extends javax.swing.JPanel {
     private CropTestResultQueue request;
     private UserAccount userAccount;
     private Enterprise enterprise;
-    private Image image2;
+   
     
     public SendResultJPanel(JPanel userProcessContainer, CropTestResultQueue request, UserAccount userAccount, Enterprise enterprise) {
         initComponents();
@@ -51,28 +51,15 @@ public class SendResultJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.enterprise = enterprise;
         cropTxtFld.setText(request.getPlannedCropType());
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateActualValues();
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
     
     public void populateActualValues()
     {
+        try{
+            
+        
      actualBlkTxtFld.setText(String.valueOf(request.getActualBulkDensity()));
      actualElectricalTxtFld.setText(String.valueOf(request.getActualElectricalConductivity()));
      actualNitrateTxtFld.setText(String.valueOf(request.getActualNitrateLevel()));
@@ -82,6 +69,11 @@ public class SendResultJPanel extends javax.swing.JPanel {
      actualCNRatioTextField.setText(String.valueOf(request.getActualCarbonNitrogenRatio()));
      actualAluminiumSaturationTextField.setText(String.valueOf(request.getActualAluminiumSaturation()));
      actualCalciumCarbonateContentTextField.setText(String.valueOf(request.getActualCalciumCarbonateContent()));
+        }
+        
+        catch (Exception e){
+            
+        }
     }
 
     /**
@@ -132,6 +124,8 @@ public class SendResultJPanel extends javax.swing.JPanel {
         expectedWaterContentTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Result:");
 
@@ -141,7 +135,7 @@ public class SendResultJPanel extends javax.swing.JPanel {
             }
         });
 
-        backToResearchWorkAreaBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        backToResearchWorkAreaBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backToResearchWorkAreaBtn.setText("<<Back");
         backToResearchWorkAreaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +143,7 @@ public class SendResultJPanel extends javax.swing.JPanel {
             }
         });
 
-        submitResearchStudyBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        submitResearchStudyBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         submitResearchStudyBtn.setText("Submit Research Result");
         submitResearchStudyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +166,7 @@ public class SendResultJPanel extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Electrical Conductivity:");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("For Crop: ");
 
         cropTxtFld.setEditable(false);
@@ -199,7 +193,7 @@ public class SendResultJPanel extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setText("Actual:");
 
-        conductResearchJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        conductResearchJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         conductResearchJButton.setText("Conduct Research");
         conductResearchJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +201,7 @@ public class SendResultJPanel extends javax.swing.JPanel {
             }
         });
 
-        searchForThisCropJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        searchForThisCropJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         searchForThisCropJButton.setText("Search For this Crop");
         searchForThisCropJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +229,7 @@ public class SendResultJPanel extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("CalciumCarbonate:");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Process Research Result");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -243,9 +237,9 @@ public class SendResultJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(225, 225, 225)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,35 +286,38 @@ public class SendResultJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addComponent(jLabel14))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(submitResearchStudyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(researchResultTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(submitResearchStudyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(researchResultTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(281, 281, 281))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backToResearchWorkAreaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(cropTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(searchForThisCropJButton)
-                                .addGap(36, 36, 36)
-                                .addComponent(conductResearchJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cropTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(searchForThisCropJButton)
+                        .addGap(36, 36, 36)
+                        .addComponent(conductResearchJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(296, 296, 296)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                        .addGap(49, 49, 49)
+                        .addComponent(backToResearchWorkAreaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel7)
-                .addGap(29, 29, 29)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cropTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,15 +379,15 @@ public class SendResultJPanel extends javax.swing.JPanel {
                         .addComponent(expectedAluminiumSaturationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(expectedCalciumCarbonateContentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(researchResultTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitResearchStudyBtn)
-                    .addComponent(backToResearchWorkAreaBtn))
-                .addGap(42, 42, 42))
+                .addComponent(submitResearchStudyBtn)
+                .addGap(8, 8, 8)
+                .addComponent(backToResearchWorkAreaBtn)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -461,6 +458,8 @@ public class SendResultJPanel extends javax.swing.JPanel {
 
     private void searchForThisCropJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchForThisCropJButtonActionPerformed
         // TODO add your handling code here:
+        try{
+        
         boolean received = false;
         for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList())
         {
@@ -510,9 +509,13 @@ public class SendResultJPanel extends javax.swing.JPanel {
                     }
             }
             
-            
+        }
+        }
+        
+        catch (Exception e){
             
         }
+        
     }//GEN-LAST:event_searchForThisCropJButtonActionPerformed
 
     private void conductResearchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conductResearchJButtonActionPerformed

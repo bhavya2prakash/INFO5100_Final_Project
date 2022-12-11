@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kkgarg
+ * @author Bhavya Prakash
  */
 public class ManageNetworkJPanel extends javax.swing.JPanel {
 
@@ -40,25 +40,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        //backgroundImage("/resources/imgs/HP2.jpg");
         populateNetworkTable();
     }
-
-//    private void backgroundImage(String str){
-//        try {
-//            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-//            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-//        } catch (IOException ex) {
-//            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
     
     private void populateNetworkTable() {
         DefaultTableModel model = (DefaultTableModel) networkTable.getModel();
@@ -191,6 +174,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+        try{
+        
         String name = networkNameTextField.getText();
         if(networkNameTextField.getText().length()==0 ){  
         JOptionPane.showMessageDialog(null, "Please Enter a Network");
@@ -200,6 +185,11 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         network.setName(name);
         populateNetworkTable();
         networkNameTextField.setText("");
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

@@ -26,7 +26,7 @@ import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
- * @author kkgarg
+ * @author Bhavya Prakash
  */
 public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -41,65 +41,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        //populateTree();
-        //backgroundImage("/Images/Agronomy_Mainframe.png");
-    }
-//    private void backgroundImage(String str){
-//        try {
-//            BufferedImage image1 = ImageIO.read(SystemAdminWorkAreaJPanel.class.getResource(str));
-//            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-//        } catch (IOException ex) {
-//            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
-    
-    public void populateTree(){
-//        DefaultTreeModel model = (DefaultTreeModel) ecoSystemJTree.getModel();
-//        
-//        ArrayList<Network> networkList = system.getNetworkList();
-//        ArrayList<Enterprise> enterpriseList;
-//        ArrayList<Organization> organizationList;
-//        
-//        Network network;
-//        Enterprise enterprise;
-//        Organization organization;
-//        
-//        DefaultMutableTreeNode networks = new DefaultMutableTreeNode("networks");
-//        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-//        root.removeAllChildren();
-//        root.insert(networks, 0);
-//        
-//        DefaultMutableTreeNode networkNode;
-//        DefaultMutableTreeNode enterpriseNode;
-//        DefaultMutableTreeNode organizationNode;
-//        
-//        for(int i = 0; i < networkList.size(); i++){
-//            network = networkList.get(i);
-//            networkNode = new DefaultMutableTreeNode(network.getName());
-//            networks.insert(networkNode, i);
-//            
-//            enterpriseList = network.getEnterpriseDirectory().getEnterpriseList();
-//            for(int j = 0; j < enterpriseList.size(); j++){
-//                enterprise = enterpriseList.get(j);
-//                enterpriseNode = new DefaultMutableTreeNode(enterprise.getName());
-//                networkNode.insert(enterpriseNode, j);
-//                
-//                organizationList = enterprise.getOrganizationDirectory().getOrganizationList();
-//                for(int k = 0; k < organizationList.size(); k++){
-//                    organization = enterpriseList.get(k);
-//                    organizationNode = new DefaultMutableTreeNode(organization.getName());
-//                    enterpriseNode.insert(organizationNode, k);
-//                }
-//            }
-//        }
-//        model.reload();
+        
     }
 
     /**
