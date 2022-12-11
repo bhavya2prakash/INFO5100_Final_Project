@@ -143,13 +143,13 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Enterprise Name:");
 
-        networkComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        networkComboBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         networkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        enterpriseTypeComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        enterpriseTypeComboBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         enterpriseTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        enterpriseNameTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        enterpriseNameTextField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         enterpriseNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseNameTextFieldActionPerformed(evt);
@@ -234,7 +234,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                             .addComponent(enterpriseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addComponent(submitButton)
-                        .addContainerGap(63, Short.MAX_VALUE))))
+                        .addContainerGap(69, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 

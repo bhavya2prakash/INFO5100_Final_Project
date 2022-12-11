@@ -29,7 +29,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kkgarg
+ * @author Supriya Tripathi
  */
 public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
@@ -38,34 +38,20 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
      */
     private JPanel container;
     private Enterprise enterprise;
-    private Image image2;
+   
     
     public ManageUserAccountJPanel(JPanel container, Enterprise enterprise) {
         initComponents();
         this.enterprise = enterprise;
         this.container = container;
-        backgroundImage("/resources/imgs/HP2.jpg");
         popOrganizationComboBox();
         popData();
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
+   
     
     public void popOrganizationComboBox() {
+       try{
         organizationJComboBox.removeAllItems();
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
@@ -74,13 +60,26 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                     organizationJComboBox.addItem(organization);
                 }
         }
+       } 
+       
+       catch (Exception e){
+           
+       }
     }
     
     public void populateEmployeeComboBox(Organization organization){
-        employeeJComboBox.removeAllItems();
+        try{
+            employeeJComboBox.removeAllItems();
+        
         
         for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
             employeeJComboBox.addItem(employee);
+        }
+        
+        }
+        
+        catch (Exception e){
+            
         }
     }
     
@@ -92,7 +91,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     }
     
     public void popData() {
-
+      try{
         DefaultTableModel model = (DefaultTableModel) userJTable.getModel();
 
         model.setRowCount(0);
@@ -105,6 +104,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 ((DefaultTableModel) userJTable.getModel()).addRow(row);
             }
         }
+      }
+      
+      catch (Exception e){
+          
+      }
     }
 
 
@@ -134,6 +138,8 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -155,19 +161,19 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Manage User Account");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Organization:");
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Employee:");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Role:");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("User Name:");
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Password:");
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -190,7 +196,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        createJButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        createJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         createJButton.setText("Create");
         createJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +204,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        backJButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,18 +212,20 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1322, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(311, 311, 311)
+                .addGap(33, 33, 33)
+                .addComponent(backJButton)
+                .addGap(191, 191, 191)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(backJButton)
+                        .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -279,15 +287,24 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
         // TODO add your handling code here:
-        Organization organization = (Organization) organizationJComboBox.getSelectedItem();
+       try{
+           Organization organization = (Organization) organizationJComboBox.getSelectedItem();
+       
         if (organization != null){
             populateEmployeeComboBox(organization);
             populateRoleComboBox(organization);
         }
+       }
+       
+       catch (Exception e){
+           
+       }
     }//GEN-LAST:event_organizationJComboBoxActionPerformed
 
     private void createJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createJButtonActionPerformed
         // TODO add your handling code here:
+        try{
+        
         String userName = nameJTextField.getText();
         String password = passwordJTextField.getText();
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
@@ -305,6 +322,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         popData();
         nameJTextField.setText("");
         passwordJTextField.setText("");
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_createJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

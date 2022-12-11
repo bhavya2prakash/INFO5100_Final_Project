@@ -126,7 +126,6 @@ public class SignUpJPanel extends javax.swing.JPanel {
         farmerNameTextField = new javax.swing.JTextField();
         userNameTextField = new javax.swing.JTextField();
         createAccountBtn = new javax.swing.JButton();
-        passwordTextField = new javax.swing.JTextField();
         passwordValidationJLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         networkJComboBox = new javax.swing.JComboBox();
@@ -138,6 +137,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        passwordTextField = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(238, 231, 219));
         setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
@@ -166,8 +166,6 @@ public class SignUpJPanel extends javax.swing.JPanel {
         });
         add(createAccountBtn);
         createAccountBtn.setBounds(450, 550, 220, 31);
-        add(passwordTextField);
-        passwordTextField.setBounds(680, 300, 280, 30);
         add(passwordValidationJLabel);
         passwordValidationJLabel.setBounds(590, 440, 358, 28);
 
@@ -226,6 +224,8 @@ public class SignUpJPanel extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
         add(jLabel2);
         jLabel2.setBounds(0, 0, 1340, 150);
+        add(passwordTextField);
+        passwordTextField.setBounds(680, 300, 280, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -379,7 +379,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox networkJComboBox;
-    private javax.swing.JTextField passwordTextField;
+    private javax.swing.JPasswordField passwordTextField;
     private javax.swing.JLabel passwordValidationJLabel;
     private javax.swing.JTextField userNameTextField;
     // End of variables declaration//GEN-END:variables

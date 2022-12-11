@@ -27,18 +27,14 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author prash
+ * @author Supriya Tripathi
  */
 public class MarketWorkAreaJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form MarketWorkAreaJPanel
-     */
     private JPanel userProcessContainer;
     private MarketingOrganization marketingOrganization;
     private Enterprise enterprise;
     private UserAccount userAccount;
-    private Image image2;
     
     public MarketWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, MarketingOrganization marketingOrganization, Enterprise enterprise) {
         initComponents();
@@ -46,28 +42,15 @@ public class MarketWorkAreaJPanel extends javax.swing.JPanel {
         this.marketingOrganization = marketingOrganization;
         this.enterprise = enterprise;
         this.userAccount = account;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateTable();
         
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
     
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
     
     public void populateTable(){
+        try{
+        
         DefaultTableModel model = (DefaultTableModel) marketJTable.getModel();
         
         model.setRowCount(0);
@@ -81,6 +64,11 @@ public class MarketWorkAreaJPanel extends javax.swing.JPanel {
             row[4] = status == null ? "Open" : status;
             
             model.addRow(row);
+        }
+        }
+        
+        catch (Exception e){
+            
         }
     }
 
@@ -119,6 +107,8 @@ public class MarketWorkAreaJPanel extends javax.swing.JPanel {
         imgLabel = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         viewRequestDetailsBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         viewRequestDetailsBtn.setText("View Request Details");
@@ -206,7 +196,7 @@ public class MarketWorkAreaJPanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Crop Sale Listings");
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -320,6 +310,7 @@ public class MarketWorkAreaJPanel extends javax.swing.JPanel {
 
     private void viewRequestDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRequestDetailsBtnActionPerformed
         // TODO add your handling code here:
+        try{
         int selectedRow = marketJTable.getSelectedRow();
 
         if (selectedRow < 0){
@@ -338,22 +329,15 @@ public class MarketWorkAreaJPanel extends javax.swing.JPanel {
         senderContactJTextField.setText(String.valueOf(request.getSenderContactInfo()));
         cropDescJTextArea.setText(request.getCropDesc());
         imgLabel.setIcon(request.getCropImage());
+        }
         
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_viewRequestDetailsBtnActionPerformed
 
     private void clkToBuyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clkToBuyBtnActionPerformed
-        // TODO add your handling code here:
-        
-//        cropNameJTextField.setText("");
-//        farmerNamejTextField.setText("");
-//        qtyTxtField.setText("");
-//        ratePerKgTxtF.setText("");
-//        senderAddL1TextField.setText("");
-//        senderAddLine2TextField.setText("");
-//        senderZipcodeJTextField.setText("");
-//        senderContactJTextField.setText("");
-//        cropDescJTextArea.setText("");
-//        imgLabel.setIcon(null);
+       try{
         
         int selectedRow = marketJTable.getSelectedRow();
 
@@ -364,13 +348,17 @@ public class MarketWorkAreaJPanel extends javax.swing.JPanel {
 
         MarketWorkRequest request = (MarketWorkRequest)marketJTable.getValueAt(selectedRow, 0);
 
-        //request.setStatus("Processed in Market");
-
+      
         RequestMarketJPanel requestResearch = new RequestMarketJPanel(userProcessContainer, request, userAccount, enterprise);
         userProcessContainer.add("requestMarketStudyJPanel", requestResearch);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         populateTable();
+       }
+       
+       catch (Exception e){
+           
+       }
     }//GEN-LAST:event_clkToBuyBtnActionPerformed
 
 

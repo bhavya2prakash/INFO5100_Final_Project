@@ -34,7 +34,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
- * @author Lenovo
+ * @author Bhavya Prakash
  */
 public class FeedBackJPanel extends javax.swing.JPanel {
 
@@ -43,34 +43,19 @@ public class FeedBackJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private Enterprise enterprise;
-    private Image image2;
     FeedBackJPanel(JPanel userProcessContainer, Enterprise enterprise) {
        initComponents();
        this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateTable();
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
     
     public void populateTable(){
-        DefaultTableModel model = (DefaultTableModel)feedBackTable.getModel();
-        model.setRowCount(0);
+       try{
+           DefaultTableModel model = (DefaultTableModel)feedBackTable.getModel();
+       
+           model.setRowCount(0);
         
         for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
             if(organization instanceof AdminOrganization){
@@ -84,6 +69,11 @@ public class FeedBackJPanel extends javax.swing.JPanel {
             }
         }
         
+       }
+       
+       catch (Exception e){
+           
+       }
      }
 
     /**
@@ -112,6 +102,8 @@ public class FeedBackJPanel extends javax.swing.JPanel {
         overallRatingTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Feedback List");
@@ -160,7 +152,7 @@ public class FeedBackJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -193,11 +185,11 @@ public class FeedBackJPanel extends javax.swing.JPanel {
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(471, 471, 471)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -237,9 +229,9 @@ public class FeedBackJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel6)))
-                .addGap(18, 18, 18)
+                .addGap(47, 47, 47)
                 .addComponent(jButton1)
-                .addGap(40, 40, 40))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -252,7 +244,7 @@ public class FeedBackJPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+        try{
          int selectedRow = feedBackTable.getSelectedRow();
         
         if (selectedRow < 0){
@@ -266,6 +258,12 @@ public class FeedBackJPanel extends javax.swing.JPanel {
         siteUserFriendlyTextField.setText(request.getSiteUserFriendly());
         overallRatingTextField.setText(request.getOverallRating());
         remarksTextArea.setText(request.getRemarks());
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

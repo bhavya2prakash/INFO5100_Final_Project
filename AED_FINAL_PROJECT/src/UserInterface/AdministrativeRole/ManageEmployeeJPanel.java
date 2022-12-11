@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author kkgarg
+ * @author Supriya Tripathi
  */
 public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
@@ -35,32 +35,15 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
      */
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
-    private Image image2;
     
     public ManageEmployeeJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
     
     public void populateOrganizationComboBox(){
         organizationJComboBox.removeAllItems();
@@ -76,7 +59,10 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     }
     
     public void populateOrganizationEmpComboBox(){
-        organizationEmpJComboBox.removeAllItems();
+       
+        try{
+            organizationEmpJComboBox.removeAllItems();
+        
         
         for (Organization organization : organizationDir.getOrganizationList())
         {
@@ -85,9 +71,16 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                 organizationEmpJComboBox.addItem(organization);
             }
         }
+        
+        }
+        
+        catch (Exception e){
+            
+        }
     }
 
     private void populateTable(Organization organization){
+        try{
         DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
         
         model.setRowCount(0);
@@ -97,6 +90,11 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             row[0] = employee.getId();
             row[1] = employee.getName();
             model.addRow(row);
+        }
+        }
+        
+        catch(Exception e){
+            
         }
     }
 
@@ -122,10 +120,12 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Manage Employee");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("Organization:");
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -155,15 +155,15 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
         organizationEmpJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Organization:");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Employee Name:");
 
         nameJTextField.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
 
-        addEmpJButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        addEmpJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         addEmpJButton.setText("Add Employee");
         addEmpJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +171,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
-        backJButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,26 +179,13 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1322, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(314, 314, 314)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(backJButton)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(jLabel1)))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -214,6 +201,23 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                         .addGap(467, 467, 467)
                         .addComponent(addEmpJButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(314, 314, 314)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(199, 199, 199)
+                                .addComponent(jLabel1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(backJButton)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,9 +241,9 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                     .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(addEmpJButton)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backJButton)
-                .addContainerGap())
+                .addGap(19, 19, 19))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -253,6 +257,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
     private void addEmpJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmpJButtonActionPerformed
         // TODO add your handling code here:
+       try{
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
         String name = nameJTextField.getText();
         if(nameJTextField.getText().length()==0 || organization == null){  
@@ -262,6 +267,12 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         organization.getEmployeeDirectory().createEmployee(name);
         organizationJComboBox.setSelectedItem(organization);
         nameJTextField.setText("");
+        
+       }
+       
+       catch (Exception e){
+           
+       }
     }//GEN-LAST:event_addEmpJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
