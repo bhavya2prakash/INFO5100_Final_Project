@@ -27,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Lenovo
+ * @author Bhavya Prakash
  */
 public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -39,8 +39,7 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private UserAccount userAccount;
     private EcoSystem business;
-    private Image image2;
-
+    
     public FarmerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, FarmerOrganization farmerOrganization, Enterprise enterprise, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -48,28 +47,13 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = account;
         this.business = business;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateRequestTable();
     }
     
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
-    
+   
     public void populateRequestTable(){
+        try{
         DefaultTableModel model = (DefaultTableModel) farmerJTable.getModel();
         
         model.setRowCount(0);
@@ -82,6 +66,11 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
             row[3] = result == null ? "Waiting" : result;
             
             model.addRow(row);
+        }
+        }
+        
+        catch (Exception e){
+            
         }
     }
 
@@ -102,6 +91,8 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
         viewResultJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         farmerJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,7 +115,7 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Request List");
 
-        requestSoilSampleButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        requestSoilSampleButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         requestSoilSampleButton.setText("Fill in Request Details");
         requestSoilSampleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +123,7 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewResultJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        viewResultJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewResultJButton.setText("View Results");
         viewResultJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +131,7 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        backJButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,12 +139,13 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -164,15 +156,14 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(viewResultJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(requestSoilSampleButton)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(backJButton))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(514, 514, 514)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(432, Short.MAX_VALUE))
-            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(backJButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +177,7 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(requestSoilSampleButton)
                 .addGap(18, 18, 18)
                 .addComponent(viewResultJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(backJButton)
                 .addContainerGap())
         );
@@ -201,6 +192,8 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void viewResultJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewResultJButtonActionPerformed
         // TODO add your handling code here:
+        try{
+        
         int selectedRow = farmerJTable.getSelectedRow();
         
         if (selectedRow < 0){
@@ -225,7 +218,11 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
       catch(Exception e){
           JOptionPane.showMessageDialog(null, "Request is still in progress. Please wait.");
       }  
-
+        }
+        
+        catch (Exception e){
+            
+        }
         
         
         
