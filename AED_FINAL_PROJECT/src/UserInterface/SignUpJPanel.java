@@ -69,19 +69,19 @@ public class SignUpJPanel extends javax.swing.JPanel {
         //imageLabel.setSize(1200,800);
         
         populateNetworkComboBox();
-        backgroundImage("/resources/imgs/HP2.jpg");
+       // backgroundImage("/images/Agronomy_Mainframe.png");
     }
     
-    private void backgroundImage(String str){
-        
-        try {
-            BufferedImage image1 = ImageIO.read(SignUpJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+//    private void backgroundImage(String str){
+//        
+//        try {
+//            BufferedImage image1 = ImageIO.read(SignUpJPanel.class.getResource(str));
+//            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
+//        } catch (IOException ex) {
+//            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//    }
     
     public void paintComponent(Graphics g) {
     super.paintComponent(g);
@@ -122,36 +122,27 @@ public class SignUpJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         farmerNameTextField = new javax.swing.JTextField();
         userNameTextField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         createAccountBtn = new javax.swing.JButton();
         passwordTextField = new javax.swing.JTextField();
         passwordValidationJLabel = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         networkJComboBox = new javax.swing.JComboBox();
-        jLabel9 = new javax.swing.JLabel();
         enterpriseJComboBox = new javax.swing.JComboBox();
-        emailaddresstxt = new javax.swing.JTextField();
+        farmerNameTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(238, 231, 219));
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Please Fill The Details To Create Your Account");
-        add(jLabel1);
-        jLabel1.setBounds(220, 190, 550, 29);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("User Name:");
-        add(jLabel3);
-        jLabel3.setBounds(320, 430, 80, 15);
-
-        backBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        backBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         backBtn.setText("Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,18 +150,13 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(backBtn);
-        backBtn.setBounds(60, 520, 90, 23);
+        backBtn.setBounds(590, 420, 90, 31);
         add(farmerNameTextField);
-        farmerNameTextField.setBounds(450, 240, 166, 30);
+        farmerNameTextField.setBounds(210, 230, 310, 30);
         add(userNameTextField);
-        userNameTextField.setBounds(450, 420, 166, 30);
+        userNameTextField.setBounds(680, 230, 280, 30);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("Password:");
-        add(jLabel4);
-        jLabel4.setBounds(320, 470, 70, 15);
-
-        createAccountBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        createAccountBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         createAccountBtn.setText("Create Account");
         createAccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,26 +164,18 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(createAccountBtn);
-        createAccountBtn.setBounds(470, 520, 140, 23);
+        createAccountBtn.setBounds(450, 550, 220, 31);
         add(passwordTextField);
-        passwordTextField.setBounds(450, 470, 166, 30);
+        passwordTextField.setBounds(680, 300, 280, 30);
         add(passwordValidationJLabel);
-        passwordValidationJLabel.setBounds(630, 380, 358, 28);
+        passwordValidationJLabel.setBounds(590, 440, 358, 28);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
-        add(jLabel7);
-        jLabel7.setBounds(0, 0, 1310, 130);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("Name :");
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setText("Enterprise:");
         add(jLabel6);
-        jLabel6.setBounds(320, 250, 80, 17);
+        jLabel6.setBounds(50, 440, 130, 22);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setText("Networks:");
-        add(jLabel5);
-        jLabel5.setBounds(320, 330, 70, 15);
-
+        networkJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,13 +183,9 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(networkJComboBox);
-        networkJComboBox.setBounds(450, 330, 170, 30);
+        networkJComboBox.setBounds(210, 370, 170, 30);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("Enterprise:");
-        add(jLabel9);
-        jLabel9.setBounds(320, 370, 80, 15);
-
+        enterpriseJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,121 +193,121 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(enterpriseJComboBox);
-        enterpriseJComboBox.setBounds(450, 370, 170, 30);
-        add(emailaddresstxt);
-        emailaddresstxt.setBounds(450, 290, 166, 30);
+        enterpriseJComboBox.setBounds(210, 440, 170, 30);
+        add(farmerNameTextField1);
+        farmerNameTextField1.setBounds(210, 300, 310, 30);
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel7.setText("Password:");
+        add(jLabel7);
+        jLabel7.setBounds(560, 300, 110, 22);
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel8.setText("Email Address:");
+        add(jLabel8);
+        jLabel8.setBounds(50, 300, 130, 22);
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel10.setText("Network:");
+        add(jLabel10);
+        jLabel10.setBounds(50, 370, 130, 22);
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel9.setText("Name :");
+        add(jLabel9);
+        jLabel9.setBounds(50, 230, 80, 22);
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel11.setText("User Name:");
+        add(jLabel11);
+        jLabel11.setBounds(560, 230, 110, 22);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 1340, 150);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void createAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountBtnActionPerformed
-        //Enterprise enterprise = (Enterprise) enterpriseNameComboBox.getSelectedItem();
-        
-//        String username = userNameTextField.getText();
-//        String password = passwordTextField.getText();
-//        String name = farmerNameTextField.getText();
-//        
-//        if(userNameTextField.getText().length()==0 || passwordTextField.getText().length()==0 || farmerNameTextField.getText().length()==0){  
-//        JOptionPane.showMessageDialog(null, "Please Enter all the Fields");
-//        return;
-//        }
-//        
-//        if(!(Pattern.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", password))){
-//        JOptionPane.showMessageDialog(null, "Please enter a valid password");
-//        passwordValidationJLabel.setText("Password must be 8 charaters with 1 alphabet & 1 digit");
-//        return;
-//        
-//        }
-//        
-//        Enterprise selecedEnterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
-//
-//            for(Organization organization : selecedEnterprise.getOrganizationDirectory().getOrganizationList())
-//            {
-//                if(organization instanceof FarmerOrganization){
-//                    Farmer farmer =  organization.getFarmerDirectory().createFarmer(name);
-//                    UserAccount account = organization.getUserAccountDirectory().createUserAccount(username, password, null,farmer, new FarmerRole());
-//                    //Farmer farmer =  organization.getFarmerDirectory().createFarmer(name);
-//                    
-//                    
-//                }
-//            }
-////        system.getFarmerList().createFarmer(name);
-//        farmerNameTextField.setText("");    
-//        userNameTextField.setText("");
-//        passwordTextField.setText("");
-//        JOptionPane.showMessageDialog(null, "Your account is created Succesffully");
-//        userProcessContainer.remove(this);
-//        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-//        layout.previous(userProcessContainer);
-//        
-//        
-//        
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backBtnActionPerformed
 
-   try {
-           
+    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
+
+    private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
+        // TODO add your handling code here:
+        Network network = (Network) networkJComboBox.getSelectedItem();
+        if (network != null){
+            populateEnterpriseComboBox(network);
+        }
+    }//GEN-LAST:event_networkJComboBoxActionPerformed
+
+    private void createAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountBtnActionPerformed
+
+        try {
+
             String username = userNameTextField.getText();
             String password = passwordTextField.getText();
             String name = farmerNameTextField.getText();
-            
+
             if(userNameTextField.getText().length()==0 || passwordTextField.getText().length()==0 || farmerNameTextField.getText().length()==0){
                 JOptionPane.showMessageDialog(null, "Please Enter all the Fields");
                 return;
             }
-            
+
             if(!(Pattern.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", password))){
                 JOptionPane.showMessageDialog(null, "Please enter a valid password");
                 passwordValidationJLabel.setText("Password must be 8 charaters with 1 alphabet & 1 digit");
                 return;
-                
+
             }
-            
+
             farmerNameTextField.setText("");
             userNameTextField.setText("");
             passwordTextField.setText("");
             sendEmail(username);
-            
-            JOptionPane.showMessageDialog(null, "Please verify your email before proceeding. Email verification code sent to "+emailaddresstxt.getText());
-                
-            emailaddresstxt.setText("");
-            
-//                
-                boolean condition=true;
-                while(condition)
-                {
+
+            JOptionPane.showMessageDialog(null, "Please verify your email before proceeding. Email verification code sent to "+farmerNameTextField1.getText());
+
+            farmerNameTextField1.setText("");
+
+            boolean condition=true;
+            while(condition)
+            {
                 String verify=JOptionPane.showInputDialog(null, "Please enter verification code");
                 if (verify.equals(code))
-                        {
-                         condition=false; 
-                         JOptionPane.showMessageDialog(null, "You have successfully verified your email.");
-                         break;
-                        
-                        }
-               
+                {
+                    condition=false;
+                    JOptionPane.showMessageDialog(null, "You have successfully verified your email.");
+                    break;
+
                 }
-            
+
+            }
+
             Enterprise selecedEnterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
-            
+
             for(Organization organization : selecedEnterprise.getOrganizationDirectory().getOrganizationList())
             {
                 if(organization instanceof FarmerOrganization){
                     Farmer farmer =  organization.getFarmerDirectory().createFarmer(name);
                     UserAccount account = organization.getUserAccountDirectory().createUserAccount(username, password, null,farmer, new FarmerRole());
                     //Farmer farmer =  organization.getFarmerDirectory().createFarmer(name);
-                    
-                    
+
                 }
             }
-            
-            
+
             userProcessContainer.remove(this);
             CardLayout layout = (CardLayout)userProcessContainer.getLayout();
             layout.previous(userProcessContainer);
-            
-            
-          
+
         } catch (MessagingException ex) {
             Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
+
     }//GEN-LAST:event_createAccountBtnActionPerformed
 
     private void sendEmail(String username) throws MessagingException
@@ -369,7 +343,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         try
         {
                 message.setFrom(new InternetAddress("agronomyaed@gmail.com"));
-                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailaddresstxt.getText()));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(farmerNameTextField1.getText()));
                 message.setSubject("Welcome to Agronomy Center");
                
                 message.setText("Hi " +username+ " \n\nWelcome to our application! \n \n Thank you for visiting us!  We look forward to serving you. Please use the following code to validate your account: "+s);
@@ -389,37 +363,19 @@ public class SignUpJPanel extends javax.swing.JPanel {
                         t.send(message);
     }
     
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backBtnActionPerformed
-
-    private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
-        // TODO add your handling code here:
-        Network network = (Network) networkJComboBox.getSelectedItem();
-        if (network != null){
-            populateEnterpriseComboBox(network);
-        }
-    }//GEN-LAST:event_networkJComboBoxActionPerformed
-
-    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JButton createAccountBtn;
-    private javax.swing.JTextField emailaddresstxt;
     private javax.swing.JComboBox enterpriseJComboBox;
     private javax.swing.JTextField farmerNameTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField farmerNameTextField1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox networkJComboBox;
     private javax.swing.JTextField passwordTextField;
