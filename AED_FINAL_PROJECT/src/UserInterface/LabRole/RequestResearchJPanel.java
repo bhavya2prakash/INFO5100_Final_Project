@@ -419,7 +419,7 @@ public class RequestResearchJPanel extends javax.swing.JPanel {
         
         if(nitrateLevel<25f){
             JOptionPane.showMessageDialog(null, "Please input correct values");
-            errorJLabel.setText("Nitrate level should be < 25.00");
+            errorJLabel.setText("Nitrate level should be > 25.00");
             actualNitrateLevelTextField.setText("");
             return;
         }
@@ -441,7 +441,7 @@ public class RequestResearchJPanel extends javax.swing.JPanel {
         if(electricalConductivity<0f || electricalConductivity>5f){
             JOptionPane.showMessageDialog(null, "Please input correct values");
             errorJLabel.setText("Electrical Conductivity ranges between 0.00 to 5.00");
-            actualCalciumCarbonateContentTextField.setText("");
+            actualElectricalCondvTextField.setText("");
             return;
         }
         

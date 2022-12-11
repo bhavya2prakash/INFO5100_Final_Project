@@ -38,7 +38,7 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private Enterprise enterprise;
     private EcoSystem business;
-    private Image image2;
+    
     
     public PostAQueryJPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, EcoSystem business) 
     {
@@ -47,27 +47,11 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = business;
-        backgroundImage("/resources/imgs/HP2.jpg");
         populateQueryTable();
         farmerNamejTextField.setText(userAccount.getFarmer().getFarmerName());
         
     }
-    
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(FarmerHomePageJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    
-    public void paintComponent(Graphics g) {
-    super.paintComponent(g);
-
-    // Draw the background image.
-    g.drawImage(image2, 0, 0, this);
-  }
+   
     
     public void populateQueryTable(){
         DefaultTableModel model = (DefaultTableModel) questionJTable.getModel();
@@ -109,6 +93,8 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         questionJTextArea1 = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Have Questions?? Please Write To Us");
