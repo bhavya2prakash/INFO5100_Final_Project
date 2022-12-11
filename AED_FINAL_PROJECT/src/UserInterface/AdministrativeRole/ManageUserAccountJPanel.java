@@ -279,9 +279,9 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                     .addComponent(passwordJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createJButton)
-                    .addComponent(backJButton)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backJButton)
+                    .addComponent(createJButton)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -316,7 +316,12 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         return;
         }
         
-        
+         if(!(Pattern.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", password))){
+                JOptionPane.showMessageDialog(null, "Please enter a valid password");
+                passwordJTextField.setText("Password must be 8 charaters with 1 alphabet & 1 digit");
+                return;
+
+            }
         organization.getUserAccountDirectory().createUserAccount(userName, password, employee,null, role);
         
         popData();
