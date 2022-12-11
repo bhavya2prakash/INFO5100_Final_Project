@@ -42,6 +42,11 @@ public class GeneralCropInformationJPanel extends javax.swing.JPanel {
     public GeneralCropInformationJPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, EcoSystem business) 
     {
         initComponents();
+        aboutCropJTextArea.setEditable(false);
+        climateJTextArea.setEditable(false);
+        soilJTextArea.setEditable(false);
+        fertilizerJTextArea.setEditable(false);
+        nutrientJTextArea.setEditable(false);
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
