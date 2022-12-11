@@ -214,22 +214,22 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private void btnSetLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetLocationActionPerformed
         // TODO add your handling code here:
-        
-        if (networkNameTextField.getText().trim().isEmpty()){
-        
-            JOptionPane.showMessageDialog(null, "Enter Address First");
-        
-        }else{
-              SwingUtilities.invokeLater(new Runnable() {
-                  @Override
-                  public void run() {
-                      MapViewer Browser = new MapViewer();
-                      Browser.setVisible(true);
-                      Browser.loadURL("https://google.com/maps/search/?api=1&query" + networkNameTextField.getText().trim());
-                  }
-              });
-            
-            }
+//        
+//        if (networkNameTextField.getText().trim().isEmpty()){
+//        
+//            JOptionPane.showMessageDialog(null, "Enter Address First");
+//        
+//        }else{
+//              SwingUtilities.invokeLater(new Runnable() {
+//                  @Override
+//                  public void run() {
+//                      MapViewer Browser = new MapViewer();
+//                      Browser.setVisible(true);
+//                      Browser.loadURL("https://google.com/maps/search/?api=1&query" + networkNameTextField.getText().trim());
+//                  }
+//              });
+//            
+//            }
      
     }//GEN-LAST:event_btnSetLocationActionPerformed
 

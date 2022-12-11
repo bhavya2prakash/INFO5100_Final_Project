@@ -21,6 +21,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -315,6 +316,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Please Enter all the Fields");
         return;
         }
+        
+        if(!(Pattern.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", password))){
+                JOptionPane.showMessageDialog(null, "Please enter a valid password");
+                passwordField.setText("Password must be 8 charaters with 1 alphabet & 1 digit");
+                return;
+
+            }
         boolean b= enterprise.getUserAccountDirectory().checkIfUsernameIsUnique(username);
         if(!b){
         JOptionPane.showMessageDialog(null, "Please choose a unique username");
