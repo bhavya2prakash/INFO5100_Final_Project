@@ -42,16 +42,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         //populateTree();
-        backgroundImage("/resources/imgs/HP2.jpg");
+        //backgroundImage("/resources/imgs/HP2.jpg");
     }
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(SystemAdminWorkAreaJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
+//    private void backgroundImage(String str){
+//        try {
+//            BufferedImage image1 = ImageIO.read(SystemAdminWorkAreaJPanel.class.getResource(str));
+//            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
+//        } catch (IOException ex) {
+//            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        }
     
     public void paintComponent(Graphics g) {
     super.paintComponent(g);
@@ -116,6 +116,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEnterpriseAdminButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(238, 231, 219));
+
         manageNetworkButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
         manageNetworkButton.setText("Manage Network");
         manageNetworkButton.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +142,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgs/agronomyAdvancement.JPG"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Backgroundimage.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -153,7 +155,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(manageEnterpriseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(manageNetworkButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1180, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

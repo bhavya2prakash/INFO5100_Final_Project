@@ -37,17 +37,17 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         valueLabel.setText(enterprise.getName());
         checkAdminType();
-        backgroundImage("/resources/imgs/HP2.jpg");
+        //backgroundImage("/resources/imgs/HP2.jpg");
     }
     
-    private void backgroundImage(String str){
-        try {
-            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
-            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
-        } catch (IOException ex) {
-            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
+//    private void backgroundImage(String str){
+//        try {
+//            BufferedImage image1 = ImageIO.read(ManageNetworkJPanel.class.getResource(str));
+//            image2 = image1.getScaledInstance(1200,800,Image.SCALE_SMOOTH);
+//        } catch (IOException ex) {
+//            Logger.getLogger(SignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        }
     
     public void paintComponent(Graphics g) {
     super.paintComponent(g);
@@ -85,6 +85,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         feedbackBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         reportsBtn = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(238, 231, 219));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Adminstrative Work Area");
