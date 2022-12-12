@@ -255,6 +255,10 @@ public class RequestMarketJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please Enter Remarks");
                 return;
             }
+            if(vendorZipcodeJTextField.getText().length()==0||vendorContactJTextField.getText().length()==0||orderQuantityTextField.getText().length()==0){
+               JOptionPane.showMessageDialog(null, "Please Enter all Fields");
+                return; 
+            }
             int quantity = Integer.parseInt(orderQuantityTextField.getText());
             
             if(quantity>request.getQuantity()){
