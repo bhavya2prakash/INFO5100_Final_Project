@@ -6,6 +6,7 @@
 package UserInterface.AdministrativeRole;
 
 import Business.Enterprise.Enterprise;
+import Business.Organization.AdminOrganization;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import UserInterface.SignUpJPanel;
@@ -17,7 +18,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -84,6 +87,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for (Organization organization : directory.getOrganizationList()){
+            if(!(organization instanceof AdminOrganization )){
             Object[] row = new Object[3];
             row[0] = organization.getOrganizationID();
             row[1] = organization.getName();
@@ -91,6 +95,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             
             model.addRow(row);
         }
+       }
        }
        
        catch (Exception e){
@@ -235,7 +240,14 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
        try{
         Organization.Type type = (Organization.Type) organizationJComboBox.getSelectedItem();
         String name = orgNameTxtField.getText();
-        
+        if(orgNameTxtField.getText().length()==0){
+             
+                JOptionPane.showMessageDialog(null, "Enter all fields");
+               
+                return;
+
+            
+        }
         directory.createOrganization(type, name);
         populateTable();
         orgNameTxtField.setText("");
