@@ -293,7 +293,10 @@ public class PostAQueryJPanel extends javax.swing.JPanel {
         try{
             //String farmerName  = farmerNamejTextField.getText();
             String question = questionJTextArea.getText();
-            
+            if (questionJTextArea.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Please enter all fields");
+            return;
+        }
             
             QueryWorkRequest queryWorkRequest = new QueryWorkRequest();
             queryWorkRequest.setSender(userAccount);
