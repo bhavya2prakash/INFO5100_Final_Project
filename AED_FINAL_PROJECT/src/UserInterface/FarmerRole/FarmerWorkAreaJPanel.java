@@ -197,7 +197,9 @@ public class FarmerWorkAreaJPanel extends javax.swing.JPanel {
         int selectedRow = farmerJTable.getSelectedRow();
         
         if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Pease select a row");
             return;
+            
         }
         
         CropTestResultQueue request = (CropTestResultQueue)farmerJTable.getValueAt(selectedRow, 0);
