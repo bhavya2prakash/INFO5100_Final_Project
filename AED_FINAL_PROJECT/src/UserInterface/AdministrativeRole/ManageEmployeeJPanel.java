@@ -51,7 +51,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         for (Organization organization : organizationDir.getOrganizationList())
         {
             
-                if(!(organization instanceof AdminOrganization && organization instanceof FarmerOrganization))
+                if(!(organization instanceof AdminOrganization || organization instanceof FarmerOrganization))
                 {  
                     organizationJComboBox.addItem(organization);
                 } 
