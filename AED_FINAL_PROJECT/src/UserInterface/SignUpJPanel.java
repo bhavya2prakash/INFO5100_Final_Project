@@ -271,15 +271,19 @@ public class SignUpJPanel extends javax.swing.JPanel {
                
                 return; 
             }
+              Enterprise selecedEnterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
+            boolean b= selecedEnterprise.getUserAccountDirectory().checkIfUsernameIsUnique(username);
+                if(!b){
+                JOptionPane.showMessageDialog(null, "Please choose a unique username");
+                return; 
+                }
 
-            farmerNameTextField.setText("");
-            userNameTextField.setText("");
-            passwordTextField.setText("");
+          
             sendEmail(username);
 
             JOptionPane.showMessageDialog(null, "Please verify your email before proceeding. Email verification code sent to "+farmerNameTextField1.getText());
 
-            farmerNameTextField1.setText("");
+           
 
             boolean condition=true;
             while(condition)
@@ -295,7 +299,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
 
             }
 
-            Enterprise selecedEnterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
+          
 
             for(Organization organization : selecedEnterprise.getOrganizationDirectory().getOrganizationList())
             {
@@ -306,6 +310,10 @@ public class SignUpJPanel extends javax.swing.JPanel {
 
                 }
             }
+            farmerNameTextField.setText("");
+            userNameTextField.setText("");
+            passwordTextField.setText("");
+            farmerNameTextField1.setText("");
 
             userProcessContainer.remove(this);
             CardLayout layout = (CardLayout)userProcessContainer.getLayout();
