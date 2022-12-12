@@ -384,6 +384,10 @@ public class SellCropJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please Enter Line 2");
             return;
         }
+         if(qtyTxtField.getText().length()==0 ||ratePerKgTxtF.getText().length()==0 || senderZipcodeJTextField.getText().length()==0||senderContactJTextField.getText().length()==0|| cropDescJTextArea.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Please Enter all fields");
+            return;
+        }
         if(imgFinal==null){
              JOptionPane.showMessageDialog(null, "Please upload a picture of the crop");
             return;
