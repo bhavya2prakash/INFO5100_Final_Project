@@ -262,7 +262,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
 
             if(!(Pattern.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", password))){
                 JOptionPane.showMessageDialog(null, "Please enter a valid password");
-                passwordValidationJLabel.setText("Password must be 8 charaters with 1 alphabet & 1 digit");
+               
                 return;
 
             }

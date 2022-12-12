@@ -43,8 +43,8 @@
                                   <Component id="organizationJComboBox" min="-2" max="-2" attributes="0"/>
                                   <Component id="employeeJComboBox" min="-2" max="-2" attributes="0"/>
                                   <Component id="roleJComboBox" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nameJTextField" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                  <Component id="passwordJTextField" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="nameJTextField" alignment="0" pref="96" max="32767" attributes="0"/>
+                                  <Component id="passwordJTextField" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -92,9 +92,9 @@
                   <Component id="nameJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="passwordJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <Component id="passwordJTextField" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -245,16 +245,6 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="passwordJTextField">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="16" style="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordJTextFieldActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="createJButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -283,6 +273,8 @@
           <Image iconType="3" name="/Images/Backgroundimage.jpg"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="passwordJTextField">
     </Component>
   </SubComponents>
 </Form>
